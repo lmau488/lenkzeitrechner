@@ -30,7 +30,18 @@ export default function RootLayout({ children }) {
         */}
         {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossOrigin="anonymous"></script> */}
       </head>
-      <body style={{ margin: 0, padding: 0, background: '#010409' }}>
+      <body style={{ margin: 0, padding: 0, background: '#f4f5f7' }}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "LenkzeitRechner.de",
+          "url": "https://lenkzeitrechner.de",
+          "description": "Kostenloser Online-Rechner für Lenk- und Ruhezeiten nach EU-Verordnung 561/2006. Für LKW-Fahrer und Disponenten.",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "All",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+          "inLanguage": "de-DE"
+        })}}/>
         {children}
       </body>
     </html>
