@@ -569,9 +569,9 @@ function Stat({ label, value, max, pct }) {
 
 const IS = {
   background:C.white, border:`1px solid ${C.border}`, borderRadius:10,
-  color:C.txt, padding:'11px 14px', fontSize:15, width:'100%',
+  color:C.txt, padding:'11px 14px', fontSize:15, width:'100%', minWidth:0, maxWidth:'100%',
   outline:'none', boxSizing:'border-box', fontFamily:"'Plus Jakarta Sans',sans-serif",
-  transition:'border-color 0.2s, box-shadow 0.2s',
+  transition:'border-color 0.2s, box-shadow 0.2s', display:'block',
 };
 const LS = { display:'block', fontSize:12, color:C.muted, marginBottom:6, fontWeight:600, letterSpacing:0.2 };
 
@@ -614,6 +614,8 @@ export default function Home() {
         .cols{display:grid;grid-template-columns:160px 1fr 160px;gap:24px;align-items:start;}
         .ad-side{display:flex;flex-direction:column;gap:16px;position:sticky;top:24px;}
         .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+        .form-grid > div{min-width:0;overflow:hidden;}
+        input[type=time]{width:100%!important;max-width:100%!important;min-width:0!important;}
         .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
         .presets{display:flex;gap:8px;flex-wrap:wrap;}
         .buss-tbl{width:100%;border-collapse:collapse;}
