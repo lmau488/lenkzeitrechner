@@ -15,10 +15,9 @@ export default function Datenschutz() {
 
         <h2 style={h2}>1. Verantwortlicher</h2>
         <p>
-          {/* ── HIER DEINE DATEN EINTRAGEN ── */}
-          [Dein vollständiger Name]<br/>
-          [Adresse]<br/>
-          E-Mail: [deine@email.de]
+          Luis Mauermaier<br/>
+          Wolnzacher Weg 9a, 85283 Wolnzach<br/>
+          E-Mail: luis.mauermaier@proton.me
         </p>
 
         <h2 style={h2}>2. Allgemeines zur Datenverarbeitung</h2>

@@ -14,17 +14,15 @@ export default function Impressum() {
         
         <h2 style={{ fontSize:16, marginTop:24 }}>Verantwortlich</h2>
         <p>
-          {/* ── HIER DEINE DATEN EINTRAGEN ── */}
-          <strong>[Dein vollständiger Name]</strong><br/>
-          [Deine Straße und Hausnummer]<br/>
-          [PLZ] [Stadt]<br/>
+          <strong>Luis Mauermaier</strong><br/>
+          Wolnzacher Weg 9a<br/>
+          85283 Wolnzach<br/>
           Deutschland
         </p>
 
         <h2 style={{ fontSize:16 }}>Kontakt</h2>
         <p>
-          E-Mail: [deine@email.de]<br/>
-          {/* Telefonnummer ist optional, aber empfohlen */}
+          E-Mail: luis.mauermaier@proton.me
         </p>
 
         <h2 style={{ fontSize:16 }}>Umsatzsteuer</h2>
