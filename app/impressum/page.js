@@ -25,11 +25,6 @@ export default function Impressum() {
           E-Mail: luis.mauermaier@proton.me
         </p>
 
-        <h2 style={{ fontSize:16 }}>Umsatzsteuer</h2>
-        <p>
-          Kleinunternehmer gemäß § 19 UStG. Es wird keine Umsatzsteuer ausgewiesen.
-        </p>
-
         <h2 style={{ fontSize:16 }}>Haftungsausschluss</h2>
         <p style={{ fontSize:14, color:'#8b949e' }}>
           Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. 
