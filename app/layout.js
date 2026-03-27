@@ -23,12 +23,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
-        {/* 
-          ADSENSE: Ersetze den Wert ca-pub-XXXXXXX mit deiner echten AdSense Publisher-ID
-          sobald dein AdSense Account genehmigt ist.
-          Bis dahin kann dieses Script auskommentiert bleiben.
-        */}
-        {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossOrigin="anonymous"></script> */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5227565874576366" crossOrigin="anonymous"></script>
       </head>
       <body style={{ margin: 0, padding: 0, background: '#f4f5f7' }}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
