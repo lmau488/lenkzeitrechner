@@ -114,7 +114,7 @@ const BUSSGELDER=[
 /* ═══════════════════════════════════════════════════════════  Colors  ═══ */
 const DARK={
   bg:'#13151f',surface:'#1c1f2e',surface2:'#242738',border:'rgba(255,255,255,0.07)',
-  acc:'#6366f1',accHover:'#4f46e5',accLight:'rgba(99,102,241,0.15)',
+  acc:'#f0883e',accHover:'#e07020',accLight:'rgba(240,136,62,0.15)',
   txt:'#ffffff',muted:'#94a3b8',dim:'#64748b',
   success:'#22c55e',successBg:'rgba(34,197,94,0.12)',
   warning:'#f59e0b',warningBg:'rgba(245,158,11,0.12)',
@@ -126,7 +126,7 @@ const DARK={
 };
 const LIGHT={
   bg:'#f4f5f7',surface:'#ffffff',surface2:'#f0f1f4',border:'rgba(0,0,0,0.1)',
-  acc:'#6366f1',accHover:'#4f46e5',accLight:'rgba(99,102,241,0.1)',
+  acc:'#e07020',accHover:'#c85e10',accLight:'rgba(224,112,32,0.1)',
   txt:'#1a1a2e',muted:'#555770',dim:'#888a9e',
   success:'#16a34a',successBg:'rgba(22,163,74,0.1)',
   warning:'#d97706',warningBg:'rgba(217,119,6,0.1)',
@@ -183,7 +183,7 @@ export default function Home(){
   const t=T[lang];
   const run=useCallback(()=>setResult(compute({start,planned,drivenToday,blockSincePause,drivenWeek,drivenBiweek,extUsed,redRests,splitBreak},T[lang])),[start,planned,drivenToday,blockSincePause,drivenWeek,drivenBiweek,extUsed,redRests,splitBreak,lang]);
   const bussCategories=[...new Set(BUSSGELDER.map(b=>b.cat))];
-  const catColors={'Lenkzeiten':'#f97316','Pausen':'#eab308','Ruhezeiten':'#22c55e','Aufzeichnung':'#a78bfa'};
+  const catColors={'Lenkzeiten':'#f97316','Pausen':'#eab308','Ruhezeiten':'#22c55e','Aufzeichnung':'#f0883e'};
 
   return(
     <>
@@ -205,11 +205,11 @@ export default function Home(){
         .buss-tbl th{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:${C.dim};font-weight:700;background:${C.checkBg};}
         .buss-tbl tr:hover td{background:${C.hoverBg};}
         .buss-tbl tr:last-child td{border-bottom:none;}
-        input:focus,select:focus{border-color:${C.acc}!important;box-shadow:0 0 0 3px rgba(99,102,241,0.2)!important;outline:none;}
+        input:focus,select:focus{border-color:${C.acc}!important;box-shadow:0 0 0 3px rgba(240,136,62,0.2)!important;outline:none;}
         input[type=time]{width:100%!important;max-width:100%!important;min-width:0!important;}
         input[type=number]::-webkit-inner-spin-button{opacity:1;}
         .btn-calc{transition:all 0.2s;}
-        .btn-calc:hover{background:${C.accHover}!important;transform:translateY(-1px);box-shadow:0 8px 24px rgba(99,102,241,0.4)!important;}
+        .btn-calc:hover{background:${C.accHover}!important;transform:translateY(-1px);box-shadow:0 8px 24px rgba(240,136,62,0.4)!important;}
         .btn-calc:active{transform:translateY(0);}
         .preset-btn{transition:all 0.15s;}
         .preset-btn:hover{border-color:${C.acc}!important;background:${C.accLight}!important;}
@@ -267,14 +267,14 @@ export default function Home(){
           <div className="hero">
             {/* Text */}
             <div style={{paddingTop:8,textAlign:'left',maxWidth:580,width:'100%'}}>
-              <div style={{display:'inline-flex',alignItems:'center',gap:8,background:C.accLight,border:`1px solid rgba(99,102,241,0.3)`,borderRadius:20,padding:'5px 14px',marginBottom:24}}>
+              <div style={{display:'inline-flex',alignItems:'center',gap:8,background:C.accLight,border:`1px solid rgba(240,136,62,0.3)`,borderRadius:20,padding:'5px 14px',marginBottom:24}}>
                 <span style={{width:7,height:7,borderRadius:'50%',background:C.acc,display:'inline-block'}}/>
                 <span style={{fontSize:12,color:C.acc,fontWeight:600}}>{t.badge}</span>
               </div>
               <h1 style={{fontSize:'clamp(28px,4vw,52px)',fontWeight:800,color:C.txt,lineHeight:1.1,marginBottom:20,letterSpacing:-1}}>{t.hero}</h1>
               <p style={{fontSize:16,color:C.muted,lineHeight:1.75,marginBottom:32,maxWidth:460}}>{t.heroSub}</p>
               <div style={{display:'flex',gap:10,flexWrap:'wrap'}}>
-                <button onClick={()=>setShowRules(!showRules)} style={{background:showRules?C.accLight:C.presetBg,border:`1px solid ${showRules?'rgba(99,102,241,0.4)':C.border}`,borderRadius:9,padding:'9px 18px',color:showRules?C.acc:C.muted,fontSize:13,fontWeight:600,cursor:'pointer',transition:'all 0.15s'}}>
+                <button onClick={()=>setShowRules(!showRules)} style={{background:showRules?C.accLight:C.presetBg,border:`1px solid ${showRules?'rgba(240,136,62,0.4)':C.border}`,borderRadius:9,padding:'9px 18px',color:showRules?C.acc:C.muted,fontSize:13,fontWeight:600,cursor:'pointer',transition:'all 0.15s'}}>
                   📋 {t.rules}
                 </button>
                 <button onClick={()=>setShowBuss(!showBuss)} style={{background:showBuss?C.errorBg:C.presetBg,border:`1px solid ${showBuss?'rgba(239,68,68,0.4)':C.border}`,borderRadius:9,padding:'9px 18px',color:showBuss?C.error:C.muted,fontSize:13,fontWeight:600,cursor:'pointer',transition:'all 0.15s'}}>
@@ -332,7 +332,7 @@ export default function Home(){
                   </label>
                 </div>
               </div>
-              <button className="btn-calc" onClick={run} style={{marginTop:16,width:'100%',padding:'13px 0',background:C.acc,color:'#fff',border:'none',borderRadius:10,fontSize:14,fontWeight:800,cursor:'pointer',letterSpacing:0.5,boxShadow:'0 4px 20px rgba(99,102,241,0.35)'}}>
+              <button className="btn-calc" onClick={run} style={{marginTop:16,width:'100%',padding:'13px 0',background:C.acc,color:'#fff',border:'none',borderRadius:10,fontSize:14,fontWeight:800,cursor:'pointer',letterSpacing:0.5,boxShadow:'0 4px 20px rgba(240,136,62,0.35)'}}>
                 {t.calculate}
               </button>
             </div>
@@ -404,7 +404,7 @@ export default function Home(){
                     <div style={{position:'absolute',left:11,top:4,bottom:4,width:1,background:C.border}}/>
                     {result.ev.map((e,i)=>(
                       <div key={i} style={{display:'flex',alignItems:'flex-start',gap:12,marginBottom:12,position:'relative'}}>
-                        <div style={{position:'absolute',left:-19,top:4,width:8,height:8,borderRadius:'50%',background:e.type==='start'||e.type==='ok'?C.success:e.type==='end'?C.acc:e.type==='break'?C.warning:e.type==='rest'?'#a78bfa':C.dim,border:`2px solid ${C.bg}`}}/>
+                        <div style={{position:'absolute',left:-19,top:4,width:8,height:8,borderRadius:'50%',background:e.type==='start'||e.type==='ok'?C.success:e.type==='end'?C.acc:e.type==='break'?C.warning:e.type==='rest'?'#f0883e':C.dim,border:`2px solid ${C.bg}`}}/>
                         <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:12,fontWeight:700,color:C.acc,minWidth:48}}>{e.time}</div>
                         <div style={{fontSize:13,color:C.muted}}><span style={{marginRight:7}}>{e.icon}</span>{e.label}</div>
                       </div>
