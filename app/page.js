@@ -112,7 +112,7 @@ const BUSSGELDER=[
 ];
 
 /* ═══════════════════════════════════════════════════════════  Colors  ═══ */
-const C={
+const DARK={
   bg:'#13151f',surface:'#1c1f2e',surface2:'#242738',border:'rgba(255,255,255,0.07)',
   acc:'#6366f1',accHover:'#4f46e5',accLight:'rgba(99,102,241,0.15)',
   txt:'#ffffff',muted:'#94a3b8',dim:'#64748b',
@@ -120,28 +120,40 @@ const C={
   warning:'#f59e0b',warningBg:'rgba(245,158,11,0.12)',
   error:'#ef4444',errorBg:'rgba(239,68,68,0.12)',
   info:'#60a5fa',infoBg:'rgba(96,165,250,0.12)',
+  navBg:'rgba(19,21,31,0.85)',inputBg:'rgba(255,255,255,0.05)',inputBorder:'rgba(255,255,255,0.1)',
+  dotGrid:'rgba(255,255,255,0.06)',hoverBg:'rgba(255,255,255,0.02)',checkBg:'rgba(255,255,255,0.03)',
+  langBg:'rgba(255,255,255,0.06)',presetBg:'rgba(255,255,255,0.06)',colorScheme:'dark',
+};
+const LIGHT={
+  bg:'#f4f5f7',surface:'#ffffff',surface2:'#f0f1f4',border:'rgba(0,0,0,0.1)',
+  acc:'#6366f1',accHover:'#4f46e5',accLight:'rgba(99,102,241,0.1)',
+  txt:'#1a1a2e',muted:'#555770',dim:'#888a9e',
+  success:'#16a34a',successBg:'rgba(22,163,74,0.1)',
+  warning:'#d97706',warningBg:'rgba(217,119,6,0.1)',
+  error:'#dc2626',errorBg:'rgba(220,38,38,0.1)',
+  info:'#2563eb',infoBg:'rgba(37,99,235,0.1)',
+  navBg:'rgba(255,255,255,0.9)',inputBg:'#f4f5f7',inputBorder:'rgba(0,0,0,0.12)',
+  dotGrid:'rgba(0,0,0,0.04)',hoverBg:'rgba(0,0,0,0.02)',checkBg:'rgba(0,0,0,0.04)',
+  langBg:'rgba(0,0,0,0.05)',presetBg:'rgba(0,0,0,0.05)',colorScheme:'light',
 };
 
-const IS={background:'rgba(255,255,255,0.05)',border:'1px solid rgba(255,255,255,0.1)',borderRadius:8,color:C.txt,padding:'10px 12px',fontSize:14,width:'100%',minWidth:0,maxWidth:'100%',display:'block',outline:'none',boxSizing:'border-box',fontFamily:"'Plus Jakarta Sans',sans-serif",transition:'border-color 0.2s,box-shadow 0.2s',colorScheme:'dark'};
-const LS={display:'block',fontSize:11,color:C.dim,marginBottom:5,fontWeight:600,textTransform:'uppercase',letterSpacing:0.8};
-
-function Stat({label,value,max,pct}){
-  const color=pct>95?C.error:pct>80?C.warning:C.success;
+function Stat({label,value,max,pct,c}){
+  const color=pct>95?c.error:pct>80?c.warning:c.success;
   return(
-    <div style={{background:C.surface2,border:`1px solid ${C.border}`,borderRadius:12,padding:'12px 10px',textAlign:'center'}}>
-      <div style={{fontSize:10,color:C.dim,textTransform:'uppercase',letterSpacing:1.2,marginBottom:5,fontWeight:600}}>{label}</div>
+    <div style={{background:c.surface2,border:`1px solid ${c.border}`,borderRadius:12,padding:'12px 10px',textAlign:'center'}}>
+      <div style={{fontSize:10,color:c.dim,textTransform:'uppercase',letterSpacing:1.2,marginBottom:5,fontWeight:600}}>{label}</div>
       <div style={{fontSize:18,fontWeight:800,color,fontFamily:"'JetBrains Mono',monospace"}}>{value}</div>
-      <div style={{fontSize:10,color:C.dim,marginTop:2}}>{max}</div>
-      <div style={{marginTop:7,height:3,background:'rgba(255,255,255,0.08)',borderRadius:2,overflow:'hidden'}}>
+      <div style={{fontSize:10,color:c.dim,marginTop:2}}>{max}</div>
+      <div style={{marginTop:7,height:3,background:c.checkBg,borderRadius:2,overflow:'hidden'}}>
         <div style={{height:'100%',borderRadius:2,width:`${Math.min(pct,100)}%`,background:color,transition:'width 0.6s ease'}}/>
       </div>
     </div>
   );
 }
 
-function AdSlot({height,label}){
+function AdSlot({height,label,c}){
   return(
-    <div style={{background:'rgba(255,255,255,0.03)',border:'1px dashed rgba(255,255,255,0.08)',borderRadius:10,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',minHeight:height||90,color:C.dim,fontSize:11,textAlign:'center',padding:10,width:'100%'}}>
+    <div style={{background:c.checkBg,border:`1px dashed ${c.border}`,borderRadius:10,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',minHeight:height||90,color:c.dim,fontSize:11,textAlign:'center',padding:10,width:'100%'}}>
       <div style={{fontSize:10,textTransform:'uppercase',letterSpacing:1.5,marginBottom:3,opacity:0.5}}>Anzeige</div>
       <div style={{opacity:0.4,fontSize:11}}>{label}</div>
     </div>
@@ -149,6 +161,7 @@ function AdSlot({height,label}){
 }
 
 export default function Home(){
+  const[dark,setDark]=useState(true);
   const[lang,setLang]=useState('de');
   const[langOpen,setLangOpen]=useState(false);
   const[start,setStart]=useState('06:00');
@@ -164,6 +177,9 @@ export default function Home(){
   const[showBuss,setShowBuss]=useState(false);
   const[showRules,setShowRules]=useState(false);
   const[openFaq,setOpenFaq]=useState(null);
+  const C=dark?DARK:LIGHT;
+  const IS={background:C.inputBg,border:`1px solid ${C.inputBorder}`,borderRadius:8,color:C.txt,padding:'10px 12px',fontSize:14,width:'100%',minWidth:0,maxWidth:'100%',display:'block',outline:'none',boxSizing:'border-box',fontFamily:"'Plus Jakarta Sans',sans-serif",transition:'border-color 0.2s,box-shadow 0.2s',colorScheme:C.colorScheme};
+  const LS={display:'block',fontSize:11,color:C.dim,marginBottom:5,fontWeight:600,textTransform:'uppercase',letterSpacing:0.8};
   const t=T[lang];
   const run=useCallback(()=>setResult(compute({start,planned,drivenToday,blockSincePause,drivenWeek,drivenBiweek,extUsed,redRests,splitBreak},T[lang])),[start,planned,drivenToday,blockSincePause,drivenWeek,drivenBiweek,extUsed,redRests,splitBreak,lang]);
   const bussCategories=[...new Set(BUSSGELDER.map(b=>b.cat))];
@@ -174,9 +190,10 @@ export default function Home(){
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
         *{box-sizing:border-box;margin:0;padding:0;}
-        body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:${C.bg};}
+        body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:${C.bg};transition:background 0.3s;}
         .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
-        .hero{display:grid;grid-template-columns:1fr 480px;gap:48px;align-items:start;padding:60px 0 40px;}
+        .hero{display:flex;flex-direction:column;gap:40px;padding:60px 0 40px;}
+        .hero-calc{max-width:580px;width:100%;}
         .cols{display:grid;grid-template-columns:160px 1fr 160px;gap:24px;align-items:start;}
         .ad-side{display:flex;flex-direction:column;gap:16px;position:sticky;top:80px;}
         .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -185,8 +202,8 @@ export default function Home(){
         .presets{display:flex;gap:8px;flex-wrap:wrap;}
         .buss-tbl{width:100%;border-collapse:collapse;}
         .buss-tbl th,.buss-tbl td{padding:9px 12px;text-align:left;font-size:12px;border-bottom:1px solid ${C.border};}
-        .buss-tbl th{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:${C.dim};font-weight:700;background:rgba(255,255,255,0.03);}
-        .buss-tbl tr:hover td{background:rgba(255,255,255,0.02);}
+        .buss-tbl th{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:${C.dim};font-weight:700;background:${C.checkBg};}
+        .buss-tbl tr:hover td{background:${C.hoverBg};}
         .buss-tbl tr:last-child td{border-bottom:none;}
         input:focus,select:focus{border-color:${C.acc}!important;box-shadow:0 0 0 3px rgba(99,102,241,0.2)!important;outline:none;}
         input[type=time]{width:100%!important;max-width:100%!important;min-width:0!important;}
@@ -200,8 +217,10 @@ export default function Home(){
         .nav-link:hover{color:${C.txt};}
         .lang-opt:hover{background:${C.accLight}!important;color:${C.acc}!important;}
         .faq-q:hover{color:${C.acc}!important;}
-        .dot-grid{background-image:radial-gradient(circle,rgba(255,255,255,0.06) 1px,transparent 1px);background-size:28px 28px;}
-        @media(max-width:960px){.hero{grid-template-columns:1fr;}.cols{grid-template-columns:1fr;}.ad-side{display:none;}}
+        .dot-grid{background-image:radial-gradient(circle,${C.dotGrid} 1px,transparent 1px);background-size:28px 28px;}
+        .theme-btn{background:none;border:1px solid ${C.border};border-radius:8px;padding:6px 10px;cursor:pointer;color:${C.muted};font-size:16px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
+        .theme-btn:hover{border-color:${C.acc};color:${C.acc};background:${C.accLight};}
+        @media(max-width:960px){.cols{grid-template-columns:1fr;}.ad-side{display:none;}}
         @media(max-width:580px){.form-grid{grid-template-columns:1fr;}.stats-grid{grid-template-columns:1fr 1fr;}.buss-tbl th:last-child,.buss-tbl td:last-child{display:none;}}
         @media(max-width:380px){.stats-grid{grid-template-columns:1fr;}}
       `}</style>
@@ -209,7 +228,7 @@ export default function Home(){
       <div style={{minHeight:'100vh',background:C.bg,color:C.txt}} className="dot-grid">
 
         {/* ── Nav ── */}
-        <nav style={{borderBottom:`1px solid ${C.border}`,background:'rgba(19,21,31,0.85)',backdropFilter:'blur(12px)',position:'sticky',top:0,zIndex:100}}>
+        <nav style={{borderBottom:`1px solid ${C.border}`,background:C.navBg,backdropFilter:'blur(12px)',position:'sticky',top:0,zIndex:100,transition:'background 0.3s'}}>
           <div className="wrap" style={{display:'flex',alignItems:'center',justifyContent:'space-between',height:56,gap:16}}>
             <div style={{display:'flex',alignItems:'center',gap:10}}>
               <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center',fontSize:18}}>🚛</div>
@@ -219,9 +238,13 @@ export default function Home(){
               <a href="/lkw-lenkzeiten" className="nav-link">Lenkzeiten</a>
               <a href="/pausenrechner" className="nav-link">Pausenrechner</a>
               <a href="/impressum" className="nav-link">Impressum</a>
+              {/* Theme toggle */}
+              <button className="theme-btn" onClick={()=>setDark(!dark)} title={dark?'Hell':'Dunkel'}>
+                {dark?'☀️':'🌙'}
+              </button>
               {/* Language switcher */}
               <div style={{position:'relative'}}>
-                <button onClick={()=>setLangOpen(!langOpen)} style={{background:'rgba(255,255,255,0.06)',border:`1px solid ${C.border}`,borderRadius:8,padding:'6px 12px',fontSize:13,fontWeight:600,cursor:'pointer',display:'flex',alignItems:'center',gap:6,color:C.txt,transition:'all 0.15s'}}>
+                <button onClick={()=>setLangOpen(!langOpen)} style={{background:C.langBg,border:`1px solid ${C.border}`,borderRadius:8,padding:'6px 12px',fontSize:13,fontWeight:600,cursor:'pointer',display:'flex',alignItems:'center',gap:6,color:C.txt,transition:'all 0.15s'}}>
                   {LANGS[lang].flag} {LANGS[lang].label} <span style={{fontSize:9,color:C.dim}}>▼</span>
                 </button>
                 {langOpen&&(
@@ -251,10 +274,10 @@ export default function Home(){
               <h1 style={{fontSize:'clamp(28px,4vw,52px)',fontWeight:800,color:C.txt,lineHeight:1.1,marginBottom:20,letterSpacing:-1}}>{t.hero}</h1>
               <p style={{fontSize:16,color:C.muted,lineHeight:1.75,marginBottom:32,maxWidth:460}}>{t.heroSub}</p>
               <div style={{display:'flex',gap:10,flexWrap:'wrap'}}>
-                <button onClick={()=>setShowRules(!showRules)} style={{background:showRules?C.accLight:'rgba(255,255,255,0.06)',border:`1px solid ${showRules?'rgba(99,102,241,0.4)':C.border}`,borderRadius:9,padding:'9px 18px',color:showRules?C.acc:C.muted,fontSize:13,fontWeight:600,cursor:'pointer',transition:'all 0.15s'}}>
+                <button onClick={()=>setShowRules(!showRules)} style={{background:showRules?C.accLight:C.presetBg,border:`1px solid ${showRules?'rgba(99,102,241,0.4)':C.border}`,borderRadius:9,padding:'9px 18px',color:showRules?C.acc:C.muted,fontSize:13,fontWeight:600,cursor:'pointer',transition:'all 0.15s'}}>
                   📋 {t.rules}
                 </button>
-                <button onClick={()=>setShowBuss(!showBuss)} style={{background:showBuss?'rgba(239,68,68,0.12)':'rgba(255,255,255,0.06)',border:`1px solid ${showBuss?'rgba(239,68,68,0.4)':C.border}`,borderRadius:9,padding:'9px 18px',color:showBuss?C.error:C.muted,fontSize:13,fontWeight:600,cursor:'pointer',transition:'all 0.15s'}}>
+                <button onClick={()=>setShowBuss(!showBuss)} style={{background:showBuss?C.errorBg:C.presetBg,border:`1px solid ${showBuss?'rgba(239,68,68,0.4)':C.border}`,borderRadius:9,padding:'9px 18px',color:showBuss?C.error:C.muted,fontSize:13,fontWeight:600,cursor:'pointer',transition:'all 0.15s'}}>
                   ⚠️ {t.fines}
                 </button>
               </div>
@@ -262,21 +285,21 @@ export default function Home(){
               {/* Stats (after calculate) */}
               {result&&(
                 <div className="stats-grid" style={{marginTop:28}}>
-                  <Stat label={t.statDay} value={fmt(result.totDay)} max={t.maxDay} pct={(result.totDay/10)*100}/>
-                  <Stat label={t.statWeek} value={fmt(result.totWk)} max={t.maxWeek} pct={(result.totWk/56)*100}/>
-                  <Stat label={t.statBi} value={fmt(result.totBi)} max={t.maxBi} pct={(result.totBi/90)*100}/>
+                  <Stat label={t.statDay} value={fmt(result.totDay)} max={t.maxDay} pct={(result.totDay/10)*100} c={C}/>
+                  <Stat label={t.statWeek} value={fmt(result.totWk)} max={t.maxWeek} pct={(result.totWk/56)*100} c={C}/>
+                  <Stat label={t.statBi} value={fmt(result.totBi)} max={t.maxBi} pct={(result.totBi/90)*100} c={C}/>
                 </div>
               )}
             </div>
 
-            {/* Right: calculator card */}
-            <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:20,padding:24,boxShadow:'0 24px 64px rgba(0,0,0,0.4)'}}>
+            {/* Calculator card (below text) */}
+            <div className="hero-calc" style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:20,padding:24,boxShadow:`0 24px 64px ${dark?'rgba(0,0,0,0.4)':'rgba(0,0,0,0.08)'}`,transition:'background 0.3s, border-color 0.3s'}}>
               {/* Presets */}
               <div style={{marginBottom:16}}>
                 <div style={{fontSize:10,color:C.dim,textTransform:'uppercase',letterSpacing:1.5,marginBottom:10,fontWeight:700}}>{t.quickselect}</div>
                 <div className="presets">
                   {t.presets.map(p=>(
-                    <button key={p.planned} className="preset-btn" onClick={()=>setPlanned(p.planned)} style={{background:planned===p.planned?C.acc:'rgba(255,255,255,0.06)',color:planned===p.planned?'#fff':C.muted,border:`1px solid ${planned===p.planned?C.acc:C.border}`,borderRadius:8,padding:'7px 12px',fontSize:12,cursor:'pointer',fontWeight:planned===p.planned?700:500,display:'flex',alignItems:'center',gap:5}}>
+                    <button key={p.planned} className="preset-btn" onClick={()=>setPlanned(p.planned)} style={{background:planned===p.planned?C.acc:C.presetBg,color:planned===p.planned?'#fff':C.muted,border:`1px solid ${planned===p.planned?C.acc:C.border}`,borderRadius:8,padding:'7px 12px',fontSize:12,cursor:'pointer',fontWeight:planned===p.planned?700:500,display:'flex',alignItems:'center',gap:5}}>
                       <span>{p.icon}</span><span>{p.name}</span><span style={{opacity:0.6,fontSize:11}}>{p.sub}</span>
                     </button>
                   ))}
@@ -303,7 +326,7 @@ export default function Home(){
                   </select>
                 </div>
                 <div style={{gridColumn:'1/-1'}}>
-                  <label style={{display:'flex',alignItems:'center',gap:9,padding:'9px 12px',background:'rgba(255,255,255,0.03)',borderRadius:8,cursor:'pointer',userSelect:'none'}}>
+                  <label style={{display:'flex',alignItems:'center',gap:9,padding:'9px 12px',background:C.checkBg,borderRadius:8,cursor:'pointer',userSelect:'none'}}>
                     <input type="checkbox" checked={splitBreak} onChange={e=>setSplitBreak(e.target.checked)} style={{accentColor:C.acc,width:15,height:15,cursor:'pointer'}}/>
                     <span style={{fontSize:12,color:C.muted}}>{t.splitBreak}</span>
                   </label>
@@ -330,7 +353,7 @@ export default function Home(){
               <div style={{fontWeight:700,color:C.error,fontSize:12,marginBottom:16}}>⚠️ {t.finesTitle}</div>
               {bussCategories.map(cat=>(
                 <div key={cat} style={{marginBottom:16}}>
-                  <div style={{display:'inline-block',background:`rgba(255,255,255,0.05)`,color:catColors[cat]||C.muted,fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:1,padding:'3px 10px',borderRadius:20,marginBottom:8,border:`1px solid ${catColors[cat]}33`}}>{cat}</div>
+                  <div style={{display:'inline-block',background:C.checkBg,color:catColors[cat]||C.muted,fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:1,padding:'3px 10px',borderRadius:20,marginBottom:8,border:`1px solid ${catColors[cat]}33`}}>{cat}</div>
                   <div style={{overflowX:'auto'}}>
                     <table className="buss-tbl">
                       <thead><tr>{t.finesCol.map((c,i)=><th key={i}>{c}</th>)}</tr></thead>
@@ -355,13 +378,13 @@ export default function Home(){
           {/* ── 3-col layout ── */}
           <div className="cols" style={{paddingBottom:60}}>
             <aside className="ad-side">
-              <AdSlot height={600} label="160×600 Skyscraper"/>
+              <AdSlot height={600} label="160×600 Skyscraper" c={C}/>
             </aside>
 
             <main>
               {/* Top ad */}
               <div style={{marginBottom:16}}>
-                <AdSlot height={90} label="728×90 Leaderboard · Google AdSense"/>
+                <AdSlot height={90} label="728×90 Leaderboard · Google AdSense" c={C}/>
               </div>
 
               {/* Result */}
@@ -391,7 +414,7 @@ export default function Home(){
               )}
 
               {/* Mid ad */}
-              {result&&<div style={{marginBottom:16}}><AdSlot height={90} label="728×90 Leaderboard · Google AdSense"/></div>}
+              {result&&<div style={{marginBottom:16}}><AdSlot height={90} label="728×90 Leaderboard · Google AdSense" c={C}/></div>}
 
               {/* FAQ */}
               <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'18px 20px',marginBottom:16}}>
@@ -425,7 +448,7 @@ export default function Home(){
             </main>
 
             <aside className="ad-side">
-              <AdSlot height={600} label="160×600 Skyscraper"/>
+              <AdSlot height={600} label="160×600 Skyscraper" c={C}/>
             </aside>
           </div>
         </div>
