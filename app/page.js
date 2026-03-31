@@ -120,7 +120,7 @@ const DARK={
   warning:'#f59e0b',warningBg:'rgba(245,158,11,0.12)',
   error:'#ef4444',errorBg:'rgba(239,68,68,0.12)',
   info:'#60a5fa',infoBg:'rgba(96,165,250,0.12)',
-  navBg:'rgba(19,21,31,0.85)',inputBg:'rgba(255,255,255,0.05)',inputBorder:'rgba(255,255,255,0.1)',
+  navBg:'rgba(19,21,31,0.85)',inputBg:'#242738',inputBorder:'rgba(255,255,255,0.12)',
   dotGrid:'rgba(255,255,255,0.06)',hoverBg:'rgba(255,255,255,0.02)',checkBg:'rgba(255,255,255,0.03)',
   langBg:'rgba(255,255,255,0.06)',presetBg:'rgba(255,255,255,0.06)',colorScheme:'dark',
 };
@@ -132,7 +132,7 @@ const LIGHT={
   warning:'#d97706',warningBg:'rgba(217,119,6,0.1)',
   error:'#dc2626',errorBg:'rgba(220,38,38,0.1)',
   info:'#2563eb',infoBg:'rgba(37,99,235,0.1)',
-  navBg:'rgba(255,255,255,0.9)',inputBg:'#f4f5f7',inputBorder:'rgba(0,0,0,0.12)',
+  navBg:'rgba(255,255,255,0.9)',inputBg:'#ffffff',inputBorder:'rgba(0,0,0,0.15)',
   dotGrid:'rgba(0,0,0,0.04)',hoverBg:'rgba(0,0,0,0.02)',checkBg:'rgba(0,0,0,0.04)',
   langBg:'rgba(0,0,0,0.05)',presetBg:'rgba(0,0,0,0.05)',colorScheme:'light',
 };
@@ -192,8 +192,8 @@ export default function Home(){
         *{box-sizing:border-box;margin:0;padding:0;}
         body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:${C.bg};transition:background 0.3s;}
         .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
-        .hero{display:flex;flex-direction:column;gap:40px;padding:60px 0 40px;}
-        .hero-calc{max-width:580px;width:100%;}
+        .hero{display:flex;flex-direction:column;align-items:center;gap:40px;padding:60px 0 40px;text-align:center;}
+        .hero-calc{max-width:580px;width:100%;margin:0 auto;}
         .cols{display:grid;grid-template-columns:160px 1fr 160px;gap:24px;align-items:start;}
         .ad-side{display:flex;flex-direction:column;gap:16px;position:sticky;top:80px;}
         .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -265,8 +265,8 @@ export default function Home(){
 
           {/* ── Hero ── */}
           <div className="hero">
-            {/* Left: text */}
-            <div style={{paddingTop:8}}>
+            {/* Text */}
+            <div style={{paddingTop:8,textAlign:'left',maxWidth:580,width:'100%'}}>
               <div style={{display:'inline-flex',alignItems:'center',gap:8,background:C.accLight,border:`1px solid rgba(99,102,241,0.3)`,borderRadius:20,padding:'5px 14px',marginBottom:24}}>
                 <span style={{width:7,height:7,borderRadius:'50%',background:C.acc,display:'inline-block'}}/>
                 <span style={{fontSize:12,color:C.acc,fontWeight:600}}>{t.badge}</span>
@@ -293,7 +293,7 @@ export default function Home(){
             </div>
 
             {/* Calculator card (below text) */}
-            <div className="hero-calc" style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:20,padding:24,boxShadow:`0 24px 64px ${dark?'rgba(0,0,0,0.4)':'rgba(0,0,0,0.08)'}`,transition:'background 0.3s, border-color 0.3s'}}>
+            <div className="hero-calc" style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:20,padding:24,boxShadow:`0 24px 64px ${dark?'rgba(0,0,0,0.4)':'rgba(0,0,0,0.08)'}`,transition:'background 0.3s, border-color 0.3s',textAlign:'left'}}>
               {/* Presets */}
               <div style={{marginBottom:16}}>
                 <div style={{fontSize:10,color:C.dim,textTransform:'uppercase',letterSpacing:1.5,marginBottom:10,fontWeight:700}}>{t.quickselect}</div>
