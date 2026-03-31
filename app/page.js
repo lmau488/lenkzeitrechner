@@ -192,10 +192,11 @@ export default function Home(){
         *{box-sizing:border-box;margin:0;padding:0;}
         body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:${C.bg};transition:background 0.3s;}
         .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
-        .hero{display:flex;flex-direction:column;align-items:center;gap:40px;padding:60px 0 40px;text-align:center;}
-        .hero-calc{max-width:580px;width:100%;margin:0 auto;}
-        .cols{display:grid;grid-template-columns:160px 1fr 160px;gap:24px;align-items:start;}
+        .hero{display:flex;flex-direction:column;gap:32px;padding:48px 0 32px;}
+        .hero-calc{max-width:100%;width:100%;}
+        .main-layout{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start;padding-bottom:60px;}
         .ad-side{display:flex;flex-direction:column;gap:16px;position:sticky;top:80px;}
+        .ad-banner{width:100%;margin:16px 0;}
         .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
         .form-grid > div{min-width:0;overflow:hidden;}
         .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
@@ -220,7 +221,7 @@ export default function Home(){
         .dot-grid{background-image:radial-gradient(circle,${C.dotGrid} 1px,transparent 1px);background-size:28px 28px;}
         .theme-btn{background:none;border:1px solid ${C.border};border-radius:8px;padding:6px 10px;cursor:pointer;color:${C.muted};font-size:16px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
         .theme-btn:hover{border-color:${C.acc};color:${C.acc};background:${C.accLight};}
-        @media(max-width:960px){.cols{grid-template-columns:1fr;}.ad-side{display:none;}}
+        @media(max-width:960px){.main-layout{grid-template-columns:1fr;}.ad-side{display:none;}}
         @media(max-width:580px){.form-grid{grid-template-columns:1fr;}.stats-grid{grid-template-columns:1fr 1fr;}.buss-tbl th:last-child,.buss-tbl td:last-child{display:none;}}
         @media(max-width:380px){.stats-grid{grid-template-columns:1fr;}}
       `}</style>
@@ -266,7 +267,7 @@ export default function Home(){
           {/* ── Hero ── */}
           <div className="hero">
             {/* Text */}
-            <div style={{paddingTop:8,textAlign:'left',maxWidth:580,width:'100%'}}>
+            <div style={{paddingTop:8,textAlign:'left'}}>
               <div style={{display:'inline-flex',alignItems:'center',gap:8,background:C.accLight,border:`1px solid rgba(240,136,62,0.3)`,borderRadius:20,padding:'5px 14px',marginBottom:24}}>
                 <span style={{width:7,height:7,borderRadius:'50%',background:C.acc,display:'inline-block'}}/>
                 <span style={{fontSize:12,color:C.acc,fontWeight:600}}>{t.badge}</span>
@@ -375,18 +376,14 @@ export default function Home(){
             </div>
           )}
 
-          {/* ── 3-col layout ── */}
-          <div className="cols" style={{paddingBottom:60}}>
-            <aside className="ad-side">
-              <AdSlot height={600} label="160×600 Skyscraper" c={C}/>
-            </aside>
+          {/* ── Banner Ad after hero ── */}
+          <div className="ad-banner">
+            <AdSlot height={90} label="728×90 Leaderboard · Google AdSense" c={C}/>
+          </div>
 
+          {/* ── 2-col layout: content + ad sidebar ── */}
+          <div className="main-layout">
             <main>
-              {/* Top ad */}
-              <div style={{marginBottom:16}}>
-                <AdSlot height={90} label="728×90 Leaderboard · Google AdSense" c={C}/>
-              </div>
-
               {/* Result */}
               {result&&(
                 <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:20,marginBottom:16}}>
@@ -413,8 +410,8 @@ export default function Home(){
                 </div>
               )}
 
-              {/* Mid ad */}
-              {result&&<div style={{marginBottom:16}}><AdSlot height={90} label="728×90 Leaderboard · Google AdSense" c={C}/></div>}
+              {/* Mid ad after result */}
+              {result&&<div className="ad-banner"><AdSlot height={90} label="728×90 Leaderboard · Google AdSense" c={C}/></div>}
 
               {/* FAQ */}
               <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'18px 20px',marginBottom:16}}>
@@ -429,6 +426,11 @@ export default function Home(){
                     {openFaq===i&&<p style={{margin:'0 0 13px',fontSize:13,color:C.muted,lineHeight:1.75}}>{f.a}</p>}
                   </div>
                 ))}
+              </div>
+
+              {/* Ad between FAQ and Legal */}
+              <div className="ad-banner">
+                <AdSlot height={250} label="300×250 Rectangle · Google AdSense" c={C}/>
               </div>
 
               {/* Legal */}
@@ -447,8 +449,11 @@ export default function Home(){
               </footer>
             </main>
 
+            {/* Ad sidebar */}
             <aside className="ad-side">
-              <AdSlot height={600} label="160×600 Skyscraper" c={C}/>
+              <AdSlot height={250} label="300×250 Medium Rectangle" c={C}/>
+              <AdSlot height={600} label="300×600 Half Page" c={C}/>
+              <AdSlot height={250} label="300×250 Medium Rectangle" c={C}/>
             </aside>
           </div>
         </div>
