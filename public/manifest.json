@@ -1,0 +1,12 @@
+{
+  "name": "LenkzeitRechner.de",
+  "short_name": "LenkzeitRechner",
+  "description": "Lenk- und Ruhezeiten nach EU VO 561/2006 berechnen",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#13151f",
+  "theme_color": "#f0883e",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

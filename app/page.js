@@ -220,15 +220,17 @@ export default function Home(){
         .preset-btn{transition:all 0.15s;}
         .preset-btn:hover{border-color:${C.acc}!important;background:${C.accLight}!important;}
         .nav-link{color:${C.muted};text-decoration:none;font-size:14px;font-weight:500;transition:color 0.15s;padding:6px 0;}
+        @media(max-width:580px){.nav-link{display:none;}.nav-brand-text{font-size:13px!important;}}
         .nav-link:hover{color:${C.txt};}
         .lang-opt:hover{background:${C.accLight}!important;color:${C.acc}!important;}
         .faq-q:hover{color:${C.acc}!important;}
         .dot-grid{background-image:radial-gradient(circle,${C.dotGrid} 1px,transparent 1px);background-size:28px 28px;}
         .theme-btn{background:none;border:1px solid ${C.border};border-radius:8px;padding:6px 10px;cursor:pointer;color:${C.muted};font-size:16px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
         .theme-btn:hover{border-color:${C.acc};color:${C.acc};background:${C.accLight};}
-        @media(max-width:960px){.main-layout{grid-template-columns:1fr;}.ad-side{display:none;}}
-        @media(max-width:580px){.form-grid{grid-template-columns:1fr;}.stats-grid{grid-template-columns:1fr 1fr;}.tips-grid{grid-template-columns:1fr!important;}.buss-tbl th:last-child,.buss-tbl td:last-child{display:none;}input[type=time],input[type=number],select{font-size:16px!important;padding:12px!important;height:48px!important;}}
-        @media(max-width:380px){.stats-grid{grid-template-columns:1fr;}}
+        @media(max-width:960px){.main-layout{grid-template-columns:1fr;}.ad-side{display:none;}.wrap{padding:0 16px;}}
+        @media(max-width:768px){.hero{padding:32px 0 24px;}.hero h1{font-size:28px!important;}.nav-link{font-size:12px;}}
+        @media(max-width:580px){.form-grid{grid-template-columns:1fr;}.stats-grid{grid-template-columns:1fr 1fr;}.tips-grid{grid-template-columns:1fr!important;}.buss-tbl th:last-child,.buss-tbl td:last-child{display:none;}input[type=time],input[type=number],select{font-size:16px!important;padding:12px!important;height:48px!important;}.hero{padding:20px 0 16px;}.presets{gap:6px;}.preset-btn{padding:6px 10px!important;font-size:11px!important;}}
+        @media(max-width:380px){.stats-grid{grid-template-columns:1fr;}.wrap{padding:0 10px;}.hero h1{font-size:24px!important;letter-spacing:-0.5px!important;}.hero p{font-size:14px!important;}.presets{flex-direction:column;}.preset-btn{width:100%!important;justify-content:center!important;}}
       `}</style>
 
       <div style={{minHeight:'100vh',background:C.bg,color:C.txt}} className="dot-grid">
@@ -246,7 +248,7 @@ export default function Home(){
           <div className="wrap" style={{display:'flex',alignItems:'center',justifyContent:'space-between',height:56,gap:16}}>
             <div style={{display:'flex',alignItems:'center',gap:10}}>
               <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center',fontSize:18}}>🚛</div>
-              <span style={{fontWeight:800,fontSize:16,color:C.txt}}>LenkzeitRechner.de</span>
+              <span className="nav-brand-text" style={{fontWeight:800,fontSize:16,color:C.txt}}>LenkzeitRechner.de</span>
             </div>
             <div style={{display:'flex',alignItems:'center',gap:24}}>
               <a href="/lkw-lenkzeiten" className="nav-link">Lenkzeiten</a>
@@ -278,7 +280,7 @@ export default function Home(){
         <div className="wrap">
 
           {/* ── Hero ── */}
-          <div className="hero">
+          <section className="hero" aria-label="Lenkzeitrechner">
             {/* Text */}
             <div style={{paddingTop:8,textAlign:'left'}}>
               <div style={{display:'inline-flex',alignItems:'center',gap:8,background:C.accLight,border:`1px solid rgba(240,136,62,0.3)`,borderRadius:20,padding:'5px 14px',marginBottom:24}}>
@@ -350,9 +352,8 @@ export default function Home(){
                 {t.calculate}
               </button>
             </div>
-          </div>
+          </section>
 
-          {/* ── Panels ── */}
           {/* ── 2-col layout: content + content sidebar ── */}
           <div className="main-layout">
             <main>
@@ -383,7 +384,7 @@ export default function Home(){
               )}
 
               {/* ── Informational Guide Section ── */}
-              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}}>
+              <article style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}}>
                 <h2 style={{fontSize:20,fontWeight:800,color:C.txt,marginBottom:6,lineHeight:1.3}}>Lenkzeiten und Ruhezeiten nach EU VO 561/2006 — kompakt erkl&auml;rt</h2>
                 <div style={{height:2,width:40,background:C.acc,borderRadius:2,marginBottom:18}}/>
                 <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:16}}>
@@ -414,7 +415,7 @@ export default function Home(){
                     <strong>Wichtig:</strong> Die regul&auml;re w&ouml;chentliche Ruhezeit (45h) darf nicht im Fahrzeug verbracht werden (Art. 8 Abs. 8). Bei Versto&szlig; drohen dem Unternehmer Bu&szlig;gelder bis zu 500 €.
                   </p>
                 </div>
-              </div>
+              </article>
 
               {/* ── Ad #1: After informational content ── */}
               <div className="ad-banner">
@@ -422,7 +423,7 @@ export default function Home(){
               </div>
 
               {/* ── Practical Tips Section ── */}
-              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}}>
+              <section style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}} aria-label="Praxistipps">
                 <h2 style={{fontSize:18,fontWeight:800,color:C.txt,marginBottom:6}}>Praxistipps f&uuml;r Berufskraftfahrer</h2>
                 <div style={{height:2,width:40,background:C.acc,borderRadius:2,marginBottom:18}}/>
 
@@ -440,10 +441,10 @@ export default function Home(){
                     </div>
                   ))}
                 </div>
-              </div>
+              </section>
 
               {/* ── Example Calculation Section ── */}
-              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}}>
+              <section style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}} aria-label="Beispielrechnung">
                 <h2 style={{fontSize:18,fontWeight:800,color:C.txt,marginBottom:6}}>Beispielrechnung: Typischer Fahrtag</h2>
                 <div style={{height:2,width:40,background:C.acc,borderRadius:2,marginBottom:18}}/>
                 <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:16}}>
@@ -465,10 +466,10 @@ export default function Home(){
                 <p style={{fontSize:13,color:C.dim,marginTop:12,lineHeight:1.7}}>
                   Nutzen Sie unseren Rechner oben, um Ihren eigenen Tagesplan mit individuellen Werten zu berechnen. Der Rechner ber&uuml;cksichtigt automatisch geteilte Pausen, verk&uuml;rzte Ruhezeiten und 10-Stunden-Verl&auml;ngerungen.
                 </p>
-              </div>
+              </section>
 
               {/* FAQ */}
-              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'18px 20px',marginBottom:16}}>
+              <section style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'18px 20px',marginBottom:16}} aria-label="FAQ">
                 <h2 style={{fontSize:16,fontWeight:800,color:C.txt,marginBottom:4}}>{t.faqTitle}</h2>
                 <div style={{height:2,width:32,background:C.acc,borderRadius:2,marginBottom:16}}/>
                 {t.faq.map((f,i)=>(
@@ -480,7 +481,7 @@ export default function Home(){
                     {openFaq===i&&<p style={{margin:'0 0 13px',fontSize:13,color:C.muted,lineHeight:1.75}}>{f.a}</p>}
                   </div>
                 ))}
-              </div>
+              </section>
 
               {/* ── Ad #2: Between FAQ and penalties overview ── */}
               <div className="ad-banner">
@@ -488,7 +489,7 @@ export default function Home(){
               </div>
 
               {/* ── Penalties Overview (always visible, compact) ── */}
-              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}}>
+              <section style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}} aria-label="Bußgeldkatalog">
                 <h2 style={{fontSize:18,fontWeight:800,color:C.txt,marginBottom:6}}>Bu&szlig;geldkatalog: Verst&ouml;&szlig;e gegen Lenk- und Ruhezeiten</h2>
                 <div style={{height:2,width:40,background:C.acc,borderRadius:2,marginBottom:14}}/>
                 <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:16}}>
@@ -510,10 +511,10 @@ export default function Home(){
                   </table>
                 </div>
                 <p style={{marginTop:10,fontSize:11,color:C.dim}}>{t.finesSource}</p>
-              </div>
+              </section>
 
               {/* ── Who does this apply to ── */}
-              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}}>
+              <section style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}} aria-label="Geltungsbereich">
                 <h2 style={{fontSize:18,fontWeight:800,color:C.txt,marginBottom:6}}>F&uuml;r wen gelten die Lenk- und Ruhezeitvorschriften?</h2>
                 <div style={{height:2,width:40,background:C.acc,borderRadius:2,marginBottom:14}}/>
                 <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:12}}>
@@ -529,7 +530,7 @@ export default function Home(){
                 <p style={{fontSize:14,color:C.muted,lineHeight:1.85}}>
                   Seit dem <strong style={{color:C.txt}}>Mobilit&auml;tspaket I (August 2020)</strong> gelten versch&auml;rfte Regeln f&uuml;r die Durchsetzung, darunter Smart-Tachographen der zweiten Generation und strengere Kontrollen der Wochenruhezeiten.
                 </p>
-              </div>
+              </section>
 
               {/* Legal */}
               <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'14px 20px',marginBottom:16,fontSize:12,color:C.dim,lineHeight:1.9}}>

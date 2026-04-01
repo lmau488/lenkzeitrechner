@@ -3,6 +3,13 @@ export const metadata = {
   description: 'LKW Lenkzeiten kompakt erklärt: Tageslenkzeit, Wochenlenkzeit, Pflichtpausen und Ruhezeiten nach EU Verordnung 561/2006. Mit Beispielen für Fahrer und Disponenten.',
   keywords: 'LKW Lenkzeiten, Tageslenkzeit LKW, Wochenlenkzeit 56 Stunden, EU 561/2006, Lenkzeiten Fahrer, Lenkzeiten Disponent',
   alternates: { canonical: 'https://lenkzeitrechner.de/lkw-lenkzeiten' },
+  openGraph: {
+    title: 'LKW Lenkzeiten 2026 – Alles zur EU VO 561/2006',
+    description: 'Tageslenkzeit, Wochenlenkzeit, Pflichtpausen und Ruhezeiten nach EU VO 561/2006 — kompakt erklärt mit Beispielen.',
+    url: 'https://lenkzeitrechner.de/lkw-lenkzeiten',
+    images: [{ url: 'https://lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
+  },
+  twitter: { card: 'summary_large_image', title: 'LKW Lenkzeiten 2026 – EU VO 561/2006', description: 'Tageslenkzeit, Wochenlenkzeit, Pflichtpausen und Ruhezeiten kompakt erklärt.' },
 };
 
 export default function LkwLenkzeiten() {

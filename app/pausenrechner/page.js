@@ -3,6 +3,13 @@ export const metadata = {
   description: 'LKW Pausenrechner online: Wann muss ein LKW-Fahrer Pause machen? Pflichtpausen nach 4,5 Stunden, geteilte Pausen und Ausnahmen – kostenlos berechnen.',
   keywords: 'LKW Pausenrechner, Pflichtpause LKW, Pause nach 4,5 Stunden, Fahrtunterbrechung berechnen, geteilte Pause LKW, Pausenzeit Berufskraftfahrer',
   alternates: { canonical: 'https://lenkzeitrechner.de/pausenrechner' },
+  openGraph: {
+    title: 'LKW Pausenrechner – Pflichtpausen nach EU VO 561/2006',
+    description: 'Wann muss ein LKW-Fahrer Pause machen? Pflichtpausen, geteilte Pausen und Ausnahmen kostenlos berechnen.',
+    url: 'https://lenkzeitrechner.de/pausenrechner',
+    images: [{ url: 'https://lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
+  },
+  twitter: { card: 'summary_large_image', title: 'LKW Pausenrechner – EU VO 561/2006', description: 'Pflichtpausen nach 4,5 Stunden berechnen — kostenlos und online.' },
 };
 
 export default function Pausenrechner() {
