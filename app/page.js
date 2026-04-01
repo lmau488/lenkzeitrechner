@@ -153,9 +153,10 @@ function Stat({label,value,max,pct,c}){
 
 function AdSlot({height,label,c}){
   return(
-    <div style={{background:c.checkBg,border:`1px dashed ${c.border}`,borderRadius:10,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',minHeight:height||90,color:c.dim,fontSize:11,textAlign:'center',padding:10,width:'100%'}}>
-      <div style={{fontSize:10,textTransform:'uppercase',letterSpacing:1.5,marginBottom:3,opacity:0.5}}>Anzeige</div>
-      <div style={{opacity:0.4,fontSize:11}}>{label}</div>
+    <div style={{background:c.surface,border:`1px solid ${c.border}`,borderRadius:14,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',minHeight:height||90,color:c.dim,fontSize:11,textAlign:'center',padding:16,width:'100%',position:'relative',overflow:'hidden'}}>
+      <div style={{position:'absolute',top:0,left:0,right:0,height:1,background:`linear-gradient(90deg,transparent,${c.acc}22,transparent)`}}/>
+      <div style={{fontSize:9,textTransform:'uppercase',letterSpacing:2,marginBottom:6,opacity:0.4,fontWeight:600}}>{c.colorScheme==='dark'?'Anzeige':'Werbung'}</div>
+      <div style={{opacity:0.25,fontSize:10}}>{label}</div>
     </div>
   );
 }
@@ -176,6 +177,7 @@ export default function Home(){
   const[result,setResult]=useState(null);
   const[showBuss,setShowBuss]=useState(false);
   const[showRules,setShowRules]=useState(false);
+  const[cookieConsent,setCookieConsent]=useState(()=>{try{return localStorage.getItem('lzr_cookie_consent')==='1';}catch(e){return false;}});
   const[openFaq,setOpenFaq]=useState(null);
   const C=dark?DARK:LIGHT;
   const IS={background:C.inputBg,border:`1px solid ${C.inputBorder}`,borderRadius:8,color:C.txt,padding:'10px 12px',fontSize:14,width:'100%',minWidth:0,maxWidth:'100%',display:'block',outline:'none',boxSizing:'border-box',fontFamily:"'Plus Jakarta Sans',sans-serif",transition:'border-color 0.2s,box-shadow 0.2s',colorScheme:C.colorScheme};
@@ -222,7 +224,7 @@ export default function Home(){
         .theme-btn{background:none;border:1px solid ${C.border};border-radius:8px;padding:6px 10px;cursor:pointer;color:${C.muted};font-size:16px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
         .theme-btn:hover{border-color:${C.acc};color:${C.acc};background:${C.accLight};}
         @media(max-width:960px){.main-layout{grid-template-columns:1fr;}.ad-side{display:none;}}
-        @media(max-width:580px){.form-grid{grid-template-columns:1fr;}.stats-grid{grid-template-columns:1fr 1fr;}.buss-tbl th:last-child,.buss-tbl td:last-child{display:none;}}
+        @media(max-width:580px){.form-grid{grid-template-columns:1fr;}.stats-grid{grid-template-columns:1fr 1fr;}.tips-grid{grid-template-columns:1fr!important;}.buss-tbl th:last-child,.buss-tbl td:last-child{display:none;}}
         @media(max-width:380px){.stats-grid{grid-template-columns:1fr;}}
       `}</style>
 
@@ -275,12 +277,12 @@ export default function Home(){
               <h1 style={{fontSize:'clamp(28px,4vw,52px)',fontWeight:800,color:C.txt,lineHeight:1.1,marginBottom:20,letterSpacing:-1}}>{t.hero}</h1>
               <p style={{fontSize:16,color:C.muted,lineHeight:1.75,marginBottom:32,maxWidth:460}}>{t.heroSub}</p>
               <div style={{display:'flex',gap:10,flexWrap:'wrap'}}>
-                <button onClick={()=>setShowRules(!showRules)} style={{background:showRules?C.accLight:C.presetBg,border:`1px solid ${showRules?'rgba(240,136,62,0.4)':C.border}`,borderRadius:9,padding:'9px 18px',color:showRules?C.acc:C.muted,fontSize:13,fontWeight:600,cursor:'pointer',transition:'all 0.15s'}}>
+                <a href="/lkw-lenkzeiten" style={{background:C.presetBg,border:`1px solid ${C.border}`,borderRadius:9,padding:'9px 18px',color:C.muted,fontSize:13,fontWeight:600,textDecoration:'none',transition:'all 0.15s'}}>
                   📋 {t.rules}
-                </button>
-                <button onClick={()=>setShowBuss(!showBuss)} style={{background:showBuss?C.errorBg:C.presetBg,border:`1px solid ${showBuss?'rgba(239,68,68,0.4)':C.border}`,borderRadius:9,padding:'9px 18px',color:showBuss?C.error:C.muted,fontSize:13,fontWeight:600,cursor:'pointer',transition:'all 0.15s'}}>
-                  ⚠️ {t.fines}
-                </button>
+                </a>
+                <a href="/pausenrechner" style={{background:C.presetBg,border:`1px solid ${C.border}`,borderRadius:9,padding:'9px 18px',color:C.muted,fontSize:13,fontWeight:600,textDecoration:'none',transition:'all 0.15s'}}>
+                  ☕ Pausenrechner
+                </a>
               </div>
 
               {/* Stats (after calculate) */}
@@ -340,48 +342,7 @@ export default function Home(){
           </div>
 
           {/* ── Panels ── */}
-          {showRules&&(
-            <div style={{background:C.surface,border:`1px solid rgba(96,165,250,0.2)`,borderLeft:`3px solid ${C.info}`,borderRadius:14,padding:'18px 22px',marginBottom:16}}>
-              <div style={{fontWeight:700,color:C.info,fontSize:11,textTransform:'uppercase',letterSpacing:1.5,marginBottom:12}}>{t.rulesTitle}</div>
-              <div style={{display:'grid',gridTemplateColumns:'auto 1fr',gap:'6px 20px',fontSize:13}}>
-                {t.rulesContent.map(([k,v],i)=>(<><span key={`k${i}`} style={{color:C.dim}}>{k}</span><span key={`v${i}`} style={{color:C.txt}}>{v}</span></>))}
-              </div>
-            </div>
-          )}
-
-          {showBuss&&(
-            <div style={{background:C.surface,border:`1px solid rgba(239,68,68,0.2)`,borderLeft:`3px solid ${C.error}`,borderRadius:14,padding:'18px 22px',marginBottom:16}}>
-              <div style={{fontWeight:700,color:C.error,fontSize:12,marginBottom:16}}>⚠️ {t.finesTitle}</div>
-              {bussCategories.map(cat=>(
-                <div key={cat} style={{marginBottom:16}}>
-                  <div style={{display:'inline-block',background:C.checkBg,color:catColors[cat]||C.muted,fontSize:10,fontWeight:700,textTransform:'uppercase',letterSpacing:1,padding:'3px 10px',borderRadius:20,marginBottom:8,border:`1px solid ${catColors[cat]}33`}}>{cat}</div>
-                  <div style={{overflowX:'auto'}}>
-                    <table className="buss-tbl">
-                      <thead><tr>{t.finesCol.map((c,i)=><th key={i}>{c}</th>)}</tr></thead>
-                      <tbody>
-                        {BUSSGELDER.filter(b=>b.cat===cat).map((b,i)=>(
-                          <tr key={i}>
-                            <td style={{color:C.muted}}>{b.v}</td>
-                            <td style={{color:C.error,fontWeight:700,whiteSpace:'nowrap'}}>{b.f}</td>
-                            <td style={{color:C.error,fontWeight:700,whiteSpace:'nowrap'}}>{b.u}</td>
-                            <td style={{color:C.dim,fontSize:11}}>{b.g}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              ))}
-              <p style={{marginTop:4,fontSize:11,color:C.dim}}>{t.finesSource}</p>
-            </div>
-          )}
-
-          {/* ── Banner Ad after hero ── */}
-          <div className="ad-banner">
-            <AdSlot height={90} label="728×90 Leaderboard · Google AdSense" c={C}/>
-          </div>
-
-          {/* ── 2-col layout: content + ad sidebar ── */}
+          {/* ── 2-col layout: content + content sidebar ── */}
           <div className="main-layout">
             <main>
               {/* Result */}
@@ -410,8 +371,90 @@ export default function Home(){
                 </div>
               )}
 
-              {/* Mid ad after result */}
-              {result&&<div className="ad-banner"><AdSlot height={90} label="728×90 Leaderboard · Google AdSense" c={C}/></div>}
+              {/* ── Informational Guide Section ── */}
+              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}}>
+                <h2 style={{fontSize:20,fontWeight:800,color:C.txt,marginBottom:6,lineHeight:1.3}}>Lenkzeiten und Ruhezeiten nach EU VO 561/2006 — kompakt erkl&auml;rt</h2>
+                <div style={{height:2,width:40,background:C.acc,borderRadius:2,marginBottom:18}}/>
+                <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:16}}>
+                  Die EU-Verordnung (EG) Nr. 561/2006 regelt die Lenk- und Ruhezeiten f&uuml;r Berufskraftfahrer im Stra&szlig;eng&uuml;terverkehr und Personenverkehr. Sie gilt f&uuml;r alle Fahrzeuge zur G&uuml;terbef&ouml;rderung mit einem zul&auml;ssigen Gesamtgewicht &uuml;ber 3,5 Tonnen sowie f&uuml;r Fahrzeuge zur Personenbef&ouml;rderung mit mehr als 9 Sitzpl&auml;tzen. Die Verordnung dient dem Schutz der Fahrer, der Verkehrssicherheit und dem fairen Wettbewerb im Transportgewerbe.
+                </p>
+
+                <h3 style={{fontSize:16,fontWeight:700,color:C.acc,marginBottom:10,marginTop:20}}>Tageslenkzeit: Maximal 9 Stunden</h3>
+                <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:12}}>
+                  Ein Fahrer darf t&auml;glich h&ouml;chstens <strong style={{color:C.txt}}>9 Stunden</strong> lenken. An zwei Tagen pro Woche darf die Tageslenkzeit auf <strong style={{color:C.txt}}>10 Stunden</strong> verl&auml;ngert werden (Art. 6 Abs. 1). Die Tageslenkzeit ist die Gesamtlenkzeit zwischen zwei t&auml;glichen Ruhezeiten oder zwischen einer t&auml;glichen und einer w&ouml;chentlichen Ruhezeit. Nur reine Fahrzeit z&auml;hlt — Ladezeiten, Wartezeiten und Pausen sind nicht inbegriffen.
+                </p>
+
+                <h3 style={{fontSize:16,fontWeight:700,color:C.acc,marginBottom:10,marginTop:20}}>Pflichtpause nach 4,5 Stunden Lenkzeit</h3>
+                <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:12}}>
+                  Nach sp&auml;testens <strong style={{color:C.txt}}>4 Stunden 30 Minuten</strong> ununterbrochener Lenkzeit muss eine Pause von mindestens <strong style={{color:C.txt}}>45 Minuten</strong> eingelegt werden (Art. 7). Alternativ kann die Pause aufgeteilt werden: zuerst mindestens 15 Minuten, danach mindestens 30 Minuten — diese Reihenfolge ist zwingend vorgeschrieben. W&auml;hrend der Pause darf keine andere Arbeit verrichtet werden.
+                </p>
+
+                <h3 style={{fontSize:16,fontWeight:700,color:C.acc,marginBottom:10,marginTop:20}}>Wochen- und Doppelwochenlenkzeit</h3>
+                <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:12}}>
+                  Die w&ouml;chentliche Lenkzeit darf <strong style={{color:C.txt}}>56 Stunden</strong> nicht &uuml;berschreiten (Art. 6 Abs. 2). In zwei aufeinanderfolgenden Wochen sind maximal <strong style={{color:C.txt}}>90 Stunden</strong> zul&auml;ssig (Art. 6 Abs. 3). Das bedeutet: Nach einer Woche mit 56 Stunden Lenkzeit d&uuml;rfen in der Folgewoche h&ouml;chstens 34 Stunden gefahren werden. Disponenten m&uuml;ssen diese Grenze bei der Tourenplanung ber&uuml;cksichtigen.
+                </p>
+
+                <h3 style={{fontSize:16,fontWeight:700,color:C.acc,marginBottom:10,marginTop:20}}>T&auml;gliche und w&ouml;chentliche Ruhezeiten</h3>
+                <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:12}}>
+                  Innerhalb von 24 Stunden muss eine t&auml;gliche Ruhezeit von mindestens <strong style={{color:C.txt}}>11 Stunden</strong> eingehalten werden (Art. 8 Abs. 2). Diese kann maximal dreimal zwischen zwei w&ouml;chentlichen Ruhezeiten auf <strong style={{color:C.txt}}>9 Stunden</strong> verk&uuml;rzt werden. Die w&ouml;chentliche Ruhezeit betr&auml;gt mindestens <strong style={{color:C.txt}}>45 Stunden</strong>. Jede zweite Woche kann sie auf 24 Stunden reduziert werden — die Differenz muss innerhalb von drei Wochen nachgeholt werden.
+                </p>
+                <div style={{background:C.errorBg,border:`1px solid rgba(239,68,68,0.25)`,borderRadius:10,padding:'12px 16px',marginTop:12}}>
+                  <p style={{fontSize:13,color:C.error,lineHeight:1.7,margin:0}}>
+                    <strong>Wichtig:</strong> Die regul&auml;re w&ouml;chentliche Ruhezeit (45h) darf nicht im Fahrzeug verbracht werden (Art. 8 Abs. 8). Bei Versto&szlig; drohen dem Unternehmer Bu&szlig;gelder bis zu 500 €.
+                  </p>
+                </div>
+              </div>
+
+              {/* ── Ad #1: After informational content ── */}
+              <div className="ad-banner">
+                <AdSlot height={90} label="728×90 Leaderboard · Google AdSense" c={C}/>
+              </div>
+
+              {/* ── Practical Tips Section ── */}
+              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}}>
+                <h2 style={{fontSize:18,fontWeight:800,color:C.txt,marginBottom:6}}>Praxistipps f&uuml;r Berufskraftfahrer</h2>
+                <div style={{height:2,width:40,background:C.acc,borderRadius:2,marginBottom:18}}/>
+
+                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}} className="tips-grid">
+                  {[
+                    {icon:'📱',title:'Digitaler Tachograph',text:'Der digitale Tachograph zeichnet Lenk-, Arbeits-, Bereitschafts- und Ruhezeiten automatisch auf. Pr\u00fcfen Sie t\u00e4glich die Aufzeichnungen und korrigieren Sie bei Bedarf manuell.'},
+                    {icon:'📋',title:'Tourenplanung',text:'Planen Sie Ihre Route so, dass Pflichtpausen an Rastpl\u00e4tzen oder Autohöfen m\u00f6glich sind. Ber\u00fccksichtigen Sie Staus und Wartezeiten bei der Zeitkalkulation.'},
+                    {icon:'⚖️',title:'Kontrollen & Nachweise',text:'Bei Stra\u00dfenkontrollen m\u00fcssen die Fahrerkarte und Ausdrucke der letzten 28 Tage vorgelegt werden. Fehlende Nachweise k\u00f6nnen sofort geahndet werden.'},
+                    {icon:'💶',title:'Bu\u00dfgelder vermeiden',text:'\u00dcberschreitungen der Lenkzeit kosten den Fahrer 60–250 € und den Unternehmer 280–500 €. Bei Manipulation des Tachographen drohen bis zu 2.000 € f\u00fcr den Unternehmer.'},
+                  ].map((tip,i)=>(
+                    <div key={i} style={{background:C.surface2,border:`1px solid ${C.border}`,borderRadius:12,padding:'16px 18px'}}>
+                      <div style={{fontSize:22,marginBottom:8}}>{tip.icon}</div>
+                      <div style={{fontSize:14,fontWeight:700,color:C.txt,marginBottom:6}}>{tip.title}</div>
+                      <p style={{fontSize:13,color:C.muted,lineHeight:1.75,margin:0}}>{tip.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* ── Example Calculation Section ── */}
+              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}}>
+                <h2 style={{fontSize:18,fontWeight:800,color:C.txt,marginBottom:6}}>Beispielrechnung: Typischer Fahrtag</h2>
+                <div style={{height:2,width:40,background:C.acc,borderRadius:2,marginBottom:18}}/>
+                <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:16}}>
+                  Ein LKW-Fahrer startet um 06:00 Uhr und plant 8 Stunden Lenkzeit. So k&ouml;nnte sein Tagesplan nach EU VO 561/2006 aussehen:
+                </p>
+                <div style={{overflowX:'auto'}}>
+                  <table className="buss-tbl">
+                    <thead><tr><th>Uhrzeit</th><th>Aktivit&auml;t</th><th>Lenkzeit gesamt</th></tr></thead>
+                    <tbody>
+                      <tr><td style={{color:C.muted}}>06:00</td><td style={{color:C.txt}}>Fahrtbeginn</td><td style={{color:C.acc,fontWeight:700}}>0h</td></tr>
+                      <tr><td style={{color:C.muted}}>10:30</td><td style={{color:C.warning}}>Pflichtpause 45 min (nach 4,5h)</td><td style={{color:C.acc,fontWeight:700}}>4h 30min</td></tr>
+                      <tr><td style={{color:C.muted}}>11:15</td><td style={{color:C.txt}}>Weiterfahrt</td><td style={{color:C.acc,fontWeight:700}}>4h 30min</td></tr>
+                      <tr><td style={{color:C.muted}}>14:45</td><td style={{color:C.success}}>Ziel erreicht — 8h gelenkt</td><td style={{color:C.acc,fontWeight:700}}>8h 00min</td></tr>
+                      <tr><td style={{color:C.muted}}>14:45</td><td style={{color:C.info}}>Tagesruhezeit beginnt (mind. 11h)</td><td style={{color:C.dim}}>—</td></tr>
+                      <tr><td style={{color:C.muted}}>01:45+</td><td style={{color:C.success}}>Fr&uuml;heste n&auml;chste Fahrt m&ouml;glich</td><td style={{color:C.dim}}>—</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p style={{fontSize:13,color:C.dim,marginTop:12,lineHeight:1.7}}>
+                  Nutzen Sie unseren Rechner oben, um Ihren eigenen Tagesplan mit individuellen Werten zu berechnen. Der Rechner ber&uuml;cksichtigt automatisch geteilte Pausen, verk&uuml;rzte Ruhezeiten und 10-Stunden-Verl&auml;ngerungen.
+                </p>
+              </div>
 
               {/* FAQ */}
               <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'18px 20px',marginBottom:16}}>
@@ -428,9 +471,53 @@ export default function Home(){
                 ))}
               </div>
 
-              {/* Ad between FAQ and Legal */}
+              {/* ── Ad #2: Between FAQ and penalties overview ── */}
               <div className="ad-banner">
                 <AdSlot height={250} label="300×250 Rectangle · Google AdSense" c={C}/>
+              </div>
+
+              {/* ── Penalties Overview (always visible, compact) ── */}
+              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}}>
+                <h2 style={{fontSize:18,fontWeight:800,color:C.txt,marginBottom:6}}>Bu&szlig;geldkatalog: Verst&ouml;&szlig;e gegen Lenk- und Ruhezeiten</h2>
+                <div style={{height:2,width:40,background:C.acc,borderRadius:2,marginBottom:14}}/>
+                <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:16}}>
+                  Verst&ouml;&szlig;e gegen die Lenk- und Ruhezeitvorschriften werden sowohl f&uuml;r den Fahrer als auch f&uuml;r den Unternehmer geahndet. Die H&ouml;he der Bu&szlig;gelder richtet sich nach Art und Schwere des Versto&szlig;es. Hier die wichtigsten F&auml;lle nach dem Bu&szlig;geldkatalog (BKatV) und dem Fahrpersonalgesetz (FPersG):
+                </p>
+                <div style={{overflowX:'auto'}}>
+                  <table className="buss-tbl">
+                    <thead><tr>{t.finesCol.map((c,i)=><th key={i}>{c}</th>)}</tr></thead>
+                    <tbody>
+                      {BUSSGELDER.map((b,i)=>(
+                        <tr key={i}>
+                          <td style={{color:C.muted}}>{b.v}</td>
+                          <td style={{color:C.error,fontWeight:700,whiteSpace:'nowrap'}}>{b.f}</td>
+                          <td style={{color:C.error,fontWeight:700,whiteSpace:'nowrap'}}>{b.u}</td>
+                          <td style={{color:C.dim,fontSize:11}}>{b.g}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <p style={{marginTop:10,fontSize:11,color:C.dim}}>{t.finesSource}</p>
+              </div>
+
+              {/* ── Who does this apply to ── */}
+              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:16,padding:'24px 24px',marginBottom:16}}>
+                <h2 style={{fontSize:18,fontWeight:800,color:C.txt,marginBottom:6}}>F&uuml;r wen gelten die Lenk- und Ruhezeitvorschriften?</h2>
+                <div style={{height:2,width:40,background:C.acc,borderRadius:2,marginBottom:14}}/>
+                <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:12}}>
+                  Die EU-Verordnung (EG) Nr. 561/2006 gilt f&uuml;r folgende Fahrzeuge:
+                </p>
+                <ul style={{fontSize:14,color:C.muted,lineHeight:2,paddingLeft:20,marginBottom:12}}>
+                  <li>Fahrzeuge zur <strong style={{color:C.txt}}>G&uuml;terbef&ouml;rderung</strong> mit einem zul&auml;ssigen Gesamtgewicht &uuml;ber <strong style={{color:C.txt}}>3,5 Tonnen</strong></li>
+                  <li>Fahrzeuge zur <strong style={{color:C.txt}}>Personenbef&ouml;rderung</strong> mit mehr als <strong style={{color:C.txt}}>9 Sitzpl&auml;tzen</strong> (inkl. Fahrersitz)</li>
+                </ul>
+                <p style={{fontSize:14,color:C.muted,lineHeight:1.85,marginBottom:12}}>
+                  <strong style={{color:C.txt}}>Ausgenommen</strong> sind unter anderem: Fahrzeuge mit einer bauartbedingten H&ouml;chstgeschwindigkeit von maximal 40 km/h, Fahrzeuge der Streitkr&auml;fte, Feuerwehr, Polizei und Katastrophenschutz, Fahrzeuge f&uuml;r nichtgewerbliche G&uuml;terbef&ouml;rderung sowie bestimmte Spezialfahrzeuge (Art. 3 und 13 VO 561/2006).
+                </p>
+                <p style={{fontSize:14,color:C.muted,lineHeight:1.85}}>
+                  Seit dem <strong style={{color:C.txt}}>Mobilit&auml;tspaket I (August 2020)</strong> gelten versch&auml;rfte Regeln f&uuml;r die Durchsetzung, darunter Smart-Tachographen der zweiten Generation und strengere Kontrollen der Wochenruhezeiten.
+                </p>
               </div>
 
               {/* Legal */}
@@ -438,8 +525,13 @@ export default function Home(){
                 <div style={{fontWeight:700,fontSize:10,textTransform:'uppercase',letterSpacing:1.5,color:C.dim,marginBottom:8}}>{t.legalTitle}</div>
                 <p style={{margin:'0 0 3px'}}>→ eur-lex.europa.eu – VO (EG) 561/2006</p>
                 <p style={{margin:'0 0 3px'}}>→ gesetze-im-internet.de/fpersv – Fahrpersonalverordnung</p>
-                <p style={{margin:'0 0 3px'}}>→ bmv.de – Mobilitätspaket I (ab 08/2020)</p>
+                <p style={{margin:'0 0 3px'}}>→ bmv.de – Mobilit&auml;tspaket I (ab 08/2020)</p>
                 <p style={{margin:'12px 0 0',color:C.error,fontSize:12}}>{t.disclaimer}</p>
+              </div>
+
+              {/* ── Ad #3: Before footer ── */}
+              <div className="ad-banner">
+                <AdSlot height={90} label="728×90 Leaderboard · Google AdSense" c={C}/>
               </div>
 
               <footer style={{display:'flex',justifyContent:'center',gap:24,padding:'16px 0',fontSize:12,color:C.dim,borderTop:`1px solid ${C.border}`}}>
@@ -449,14 +541,56 @@ export default function Home(){
               </footer>
             </main>
 
-            {/* Ad sidebar */}
+            {/* Content sidebar with navigation + one ad */}
             <aside className="ad-side">
-              <AdSlot height={250} label="300×250 Medium Rectangle" c={C}/>
-              <AdSlot height={600} label="300×600 Half Page" c={C}/>
+              {/* Quick navigation */}
+              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:14,padding:'16px 18px',marginBottom:16}}>
+                <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:1.2,color:C.acc,marginBottom:12}}>Weitere Rechner & Infos</div>
+                <a href="/lkw-lenkzeiten" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
+                  📋 LKW Lenkzeiten 2026
+                </a>
+                <a href="/pausenrechner" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
+                  ☕ Pausenrechner
+                </a>
+                <a href="/impressum" style={{display:'block',padding:'10px 12px',borderRadius:8,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
+                  📄 Impressum
+                </a>
+              </div>
+              {/* Key facts box */}
+              <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:14,padding:'16px 18px',marginBottom:16}}>
+                <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:1.2,color:C.acc,marginBottom:12}}>Wichtige Grenzwerte</div>
+                {[
+                  ['Tageslenkzeit','max. 9h (2x 10h)'],
+                  ['Pflichtpause','nach 4,5h mind. 45 min'],
+                  ['Wochenlenkzeit','max. 56h'],
+                  ['Doppelwoche','max. 90h'],
+                  ['Tagesruhezeit','mind. 11h (3x 9h)'],
+                  ['Wochenruhezeit','mind. 45h'],
+                ].map(([k,v],i)=>(
+                  <div key={i} style={{display:'flex',justifyContent:'space-between',padding:'7px 0',borderBottom:i<5?`1px solid ${C.border}`:'none',fontSize:12}}>
+                    <span style={{color:C.muted}}>{k}</span>
+                    <span style={{color:C.txt,fontWeight:600,fontFamily:"'JetBrains Mono',monospace",fontSize:11}}>{v}</span>
+                  </div>
+                ))}
+              </div>
+              {/* Single sidebar ad */}
               <AdSlot height={250} label="300×250 Medium Rectangle" c={C}/>
             </aside>
           </div>
         </div>
+
+        {/* ── Cookie Consent Banner ── */}
+        {!cookieConsent&&(
+          <div style={{position:'fixed',bottom:0,left:0,right:0,background:C.surface,borderTop:`1px solid ${C.border}`,padding:'16px 24px',zIndex:9999,boxShadow:'0 -4px 24px rgba(0,0,0,0.3)',display:'flex',alignItems:'center',justifyContent:'center',gap:16,flexWrap:'wrap'}}>
+            <p style={{fontSize:13,color:C.muted,margin:0,maxWidth:600,lineHeight:1.6}}>
+              Diese Website verwendet Cookies und Google AdSense f&uuml;r personalisierte Werbung. Durch die Nutzung dieser Website stimmen Sie der Verwendung von Cookies gem&auml;&szlig; unserer <a href="/datenschutz" style={{color:C.acc,textDecoration:'underline'}}>Datenschutzerkl&auml;rung</a> zu.
+            </p>
+            <div style={{display:'flex',gap:8}}>
+              <button onClick={()=>{setCookieConsent(true);try{localStorage.setItem('lzr_cookie_consent','1');}catch(e){}}} style={{background:C.acc,color:'#fff',border:'none',borderRadius:8,padding:'9px 20px',fontSize:13,fontWeight:700,cursor:'pointer'}}>Akzeptieren</button>
+              <button onClick={()=>{setCookieConsent(true);try{localStorage.setItem('lzr_cookie_consent','1');}catch(e){}}} style={{background:C.surface2,color:C.muted,border:`1px solid ${C.border}`,borderRadius:8,padding:'9px 20px',fontSize:13,fontWeight:600,cursor:'pointer'}}>Nur notwendige</button>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
