@@ -194,6 +194,8 @@ export default function Home(){
         *{box-sizing:border-box;margin:0;padding:0;}
         body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:${C.bg};transition:background 0.3s;}
         .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+        .side-ads{display:none;}
+        @media(min-width:1600px){.side-ads{display:flex;flex-direction:column;gap:16px;position:fixed;top:80px;z-index:10;}.side-ad-left{left:calc((100vw - 1200px)/2 - 180px);}.side-ad-right{right:calc((100vw - 1200px)/2 - 180px);}}
         .hero{display:flex;flex-direction:column;gap:32px;padding:48px 0 32px;}
         .hero-calc{max-width:100%;width:100%;}
         .main-layout{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start;padding-bottom:60px;}
@@ -209,7 +211,8 @@ export default function Home(){
         .buss-tbl tr:hover td{background:${C.hoverBg};}
         .buss-tbl tr:last-child td{border-bottom:none;}
         input:focus,select:focus{border-color:${C.acc}!important;box-shadow:0 0 0 3px rgba(240,136,62,0.2)!important;outline:none;}
-        input[type=time]{width:100%!important;max-width:100%!important;min-width:0!important;}
+        input[type=time]{width:100%!important;max-width:100%!important;min-width:0!important;-webkit-appearance:none;appearance:none;font-size:16px!important;}
+        input[type=time]::-webkit-calendar-picker-indicator{opacity:0.5;cursor:pointer;padding:0;margin:0;}
         input[type=number]::-webkit-inner-spin-button{opacity:1;}
         .btn-calc{transition:all 0.2s;}
         .btn-calc:hover{background:${C.accHover}!important;transform:translateY(-1px);box-shadow:0 8px 24px rgba(240,136,62,0.4)!important;}
@@ -224,11 +227,19 @@ export default function Home(){
         .theme-btn{background:none;border:1px solid ${C.border};border-radius:8px;padding:6px 10px;cursor:pointer;color:${C.muted};font-size:16px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
         .theme-btn:hover{border-color:${C.acc};color:${C.acc};background:${C.accLight};}
         @media(max-width:960px){.main-layout{grid-template-columns:1fr;}.ad-side{display:none;}}
-        @media(max-width:580px){.form-grid{grid-template-columns:1fr;}.stats-grid{grid-template-columns:1fr 1fr;}.tips-grid{grid-template-columns:1fr!important;}.buss-tbl th:last-child,.buss-tbl td:last-child{display:none;}}
+        @media(max-width:580px){.form-grid{grid-template-columns:1fr;}.stats-grid{grid-template-columns:1fr 1fr;}.tips-grid{grid-template-columns:1fr!important;}.buss-tbl th:last-child,.buss-tbl td:last-child{display:none;}input[type=time],input[type=number],select{font-size:16px!important;padding:12px!important;height:48px!important;}}
         @media(max-width:380px){.stats-grid{grid-template-columns:1fr;}}
       `}</style>
 
       <div style={{minHeight:'100vh',background:C.bg,color:C.txt}} className="dot-grid">
+
+        {/* ── Side Ads (large screens only) ── */}
+        <div className="side-ads side-ad-left">
+          <AdSlot height={600} label="160×600 Wide Skyscraper" c={C}/>
+        </div>
+        <div className="side-ads side-ad-right">
+          <AdSlot height={600} label="160×600 Wide Skyscraper" c={C}/>
+        </div>
 
         {/* ── Nav ── */}
         <nav style={{borderBottom:`1px solid ${C.border}`,background:C.navBg,backdropFilter:'blur(12px)',position:'sticky',top:0,zIndex:100,transition:'background 0.3s'}}>
