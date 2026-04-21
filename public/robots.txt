@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://lenkzeitrechner.de/sitemap.xml
+Sitemap: https://www.lenkzeitrechner.de/sitemap.xml
