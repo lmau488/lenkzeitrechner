@@ -5,7 +5,7 @@
   <!-- Hauptseite – alle Sprachen -->
   <url>
     <loc>https://lenkzeitrechner.de</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="de"        href="https://lenkzeitrechner.de"/>
@@ -18,31 +18,60 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lenkzeitrechner.de"/>
   </url>
 
-  <!-- LKW Lenkzeiten Seite -->
+  <!-- Themen-Seiten -->
   <url>
     <loc>https://lenkzeitrechner.de/lkw-lenkzeiten</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Pausenrechner Seite -->
   <url>
     <loc>https://lenkzeitrechner.de/pausenrechner</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://lenkzeitrechner.de/ruhezeiten</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lenkzeitrechner.de/bussgeldkatalog</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lenkzeitrechner.de/digitaler-tachograph</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lenkzeitrechner.de/mobilitaetspaket</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
+  <!-- Über und rechtliche Seiten -->
+  <url>
+    <loc>https://lenkzeitrechner.de/ueber-uns</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://lenkzeitrechner.de/impressum</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://lenkzeitrechner.de/datenschutz</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

@@ -546,7 +546,14 @@ export default function Home(){
                 <AdSlot height={90} label="728×90 Leaderboard · Google AdSense" c={C}/>
               </div>
 
-              <footer style={{display:'flex',justifyContent:'center',gap:24,padding:'16px 0',fontSize:12,color:C.dim,borderTop:`1px solid ${C.border}`}}>
+              <footer style={{display:'flex',justifyContent:'center',gap:16,padding:'16px 0',fontSize:12,color:C.dim,borderTop:`1px solid ${C.border}`,flexWrap:'wrap'}}>
+                <a href="/lkw-lenkzeiten" style={{color:C.dim,textDecoration:'none'}}>Lenkzeiten</a>
+                <a href="/pausenrechner" style={{color:C.dim,textDecoration:'none'}}>Pausenrechner</a>
+                <a href="/ruhezeiten" style={{color:C.dim,textDecoration:'none'}}>Ruhezeiten</a>
+                <a href="/bussgeldkatalog" style={{color:C.dim,textDecoration:'none'}}>Bußgelder</a>
+                <a href="/digitaler-tachograph" style={{color:C.dim,textDecoration:'none'}}>Tachograph</a>
+                <a href="/mobilitaetspaket" style={{color:C.dim,textDecoration:'none'}}>Mobilitätspaket</a>
+                <a href="/ueber-uns" style={{color:C.dim,textDecoration:'none'}}>Über uns</a>
                 <a href="/impressum" style={{color:C.dim,textDecoration:'none'}}>Impressum</a>
                 <a href="/datenschutz" style={{color:C.dim,textDecoration:'none'}}>Datenschutz</a>
                 <span>© 2026 LenkzeitRechner.de</span>
@@ -557,15 +564,27 @@ export default function Home(){
             <aside className="ad-side">
               {/* Quick navigation */}
               <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:14,padding:'16px 18px',marginBottom:16}}>
-                <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:1.2,color:C.acc,marginBottom:12}}>Weitere Rechner & Infos</div>
+                <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:1.2,color:C.acc,marginBottom:12}}>Themen & Leitfäden</div>
                 <a href="/lkw-lenkzeiten" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
                   📋 LKW Lenkzeiten 2026
                 </a>
                 <a href="/pausenrechner" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
-                  ☕ Pausenrechner
+                  ☕ Pausenrechner & Regeln
                 </a>
-                <a href="/impressum" style={{display:'block',padding:'10px 12px',borderRadius:8,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
-                  📄 Impressum
+                <a href="/ruhezeiten" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
+                  🛏 Ruhezeiten erklärt
+                </a>
+                <a href="/bussgeldkatalog" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
+                  💶 Bußgeldkatalog LKW
+                </a>
+                <a href="/digitaler-tachograph" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
+                  📟 Digitaler Tachograph
+                </a>
+                <a href="/mobilitaetspaket" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
+                  🇪🇺 Mobilitätspaket I
+                </a>
+                <a href="/ueber-uns" style={{display:'block',padding:'10px 12px',borderRadius:8,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
+                  ℹ️ Über uns & Methodik
                 </a>
               </div>
               {/* Key facts box */}

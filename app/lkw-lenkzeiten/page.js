@@ -160,7 +160,14 @@ export default function LkwLenkzeiten() {
             </a>
           </div>
 
-          <footer style={{display:'flex',justifyContent:'center',gap:24,padding:'16px 0',fontSize:12,color:C.dim,borderTop:`1px solid ${C.border}`}}>
+          <footer style={{display:'flex',justifyContent:'center',gap:16,padding:'16px 0',fontSize:12,color:C.dim,borderTop:`1px solid ${C.border}`,flexWrap:'wrap'}}>
+            <a href="/lkw-lenkzeiten" style={{color:C.acc,textDecoration:'none'}}>Lenkzeiten</a>
+            <a href="/pausenrechner" style={{color:C.dim,textDecoration:'none'}}>Pausenrechner</a>
+            <a href="/ruhezeiten" style={{color:C.dim,textDecoration:'none'}}>Ruhezeiten</a>
+            <a href="/bussgeldkatalog" style={{color:C.dim,textDecoration:'none'}}>Bußgelder</a>
+            <a href="/digitaler-tachograph" style={{color:C.dim,textDecoration:'none'}}>Tachograph</a>
+            <a href="/mobilitaetspaket" style={{color:C.dim,textDecoration:'none'}}>Mobilitätspaket</a>
+            <a href="/ueber-uns" style={{color:C.dim,textDecoration:'none'}}>Über uns</a>
             <a href="/impressum" style={{color:C.dim,textDecoration:'none'}}>Impressum</a>
             <a href="/datenschutz" style={{color:C.dim,textDecoration:'none'}}>Datenschutz</a>
             <span>© 2026 LenkzeitRechner.de</span>
