@@ -1,3 +1,5 @@
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 export const metadata = {
   title: 'LKW Pausenrechner – Pflichtpausen nach EU VO 561/2006 | LenkzeitRechner.de',
   description: 'LKW Pausenrechner online: Wann muss ein LKW-Fahrer Pause machen? Pflichtpausen nach 4,5 Stunden, geteilte Pausen und Ausnahmen – kostenlos berechnen.',
@@ -42,19 +44,7 @@ export default function Pausenrechner() {
         @media(max-width:580px){.wrap{padding:0 12px!important;}.sub-tbl th:last-child,.sub-tbl td:last-child{display:none;}.nav-link{display:none;}}
       `}</style>
       <div style={{minHeight:'100vh',background:C.bg,color:C.txt}} className="dot-grid">
-        <nav style={{borderBottom:`1px solid ${C.border}`,background:C.navBg,backdropFilter:'blur(12px)',position:'sticky',top:0,zIndex:100}}>
-          <div className="wrap" style={{maxWidth:1200,margin:'0 auto',padding:'0 24px',display:'flex',alignItems:'center',justifyContent:'space-between',height:56,gap:16}}>
-            <a href="/" style={{display:'flex',alignItems:'center',gap:10,textDecoration:'none'}}>
-              <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center',fontSize:18}}>🚛</div>
-              <span style={{fontWeight:800,fontSize:16,color:C.txt}}>LenkzeitRechner.de</span>
-            </a>
-            <div style={{display:'flex',alignItems:'center',gap:24}}>
-              <a href="/lkw-lenkzeiten" className="nav-link">Lenkzeiten</a>
-              <a href="/pausenrechner" className="nav-link active">Pausenrechner</a>
-              <a href="/impressum" className="nav-link">Impressum</a>
-            </div>
-          </div>
-        </nav>
+        <Nav activePath="/pausenrechner" />
 
         <div className="wrap" style={{maxWidth:820,margin:'0 auto',padding:'40px 24px 60px'}}>
           <div style={{fontSize:13,color:C.dim,marginBottom:20}}>
@@ -145,18 +135,7 @@ export default function Pausenrechner() {
             </a>
           </div>
 
-          <footer style={{display:'flex',justifyContent:'center',gap:16,padding:'16px 0',fontSize:12,color:C.dim,borderTop:`1px solid ${C.border}`,flexWrap:'wrap'}}>
-            <a href="/lkw-lenkzeiten" style={{color:C.dim,textDecoration:'none'}}>Lenkzeiten</a>
-            <a href="/pausenrechner" style={{color:C.acc,textDecoration:'none'}}>Pausenrechner</a>
-            <a href="/ruhezeiten" style={{color:C.dim,textDecoration:'none'}}>Ruhezeiten</a>
-            <a href="/bussgeldkatalog" style={{color:C.dim,textDecoration:'none'}}>Bußgelder</a>
-            <a href="/digitaler-tachograph" style={{color:C.dim,textDecoration:'none'}}>Tachograph</a>
-            <a href="/mobilitaetspaket" style={{color:C.dim,textDecoration:'none'}}>Mobilitätspaket</a>
-            <a href="/ueber-uns" style={{color:C.dim,textDecoration:'none'}}>Über uns</a>
-            <a href="/impressum" style={{color:C.dim,textDecoration:'none'}}>Impressum</a>
-            <a href="/datenschutz" style={{color:C.dim,textDecoration:'none'}}>Datenschutz</a>
-            <span>© 2026 LenkzeitRechner.de</span>
-          </footer>
+          <Footer C={C} />
         </div>
       </div>
     </>

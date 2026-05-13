@@ -56,6 +56,8 @@ export const metadata = {
   },
 };
 
+import { LanguageProvider } from "./i18n/LanguageContext";
+
 export default function RootLayout({ children }) {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -129,7 +131,7 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}/>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}/>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}/>
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
