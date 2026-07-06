@@ -2,12 +2,12 @@ export const metadata = {
   title: 'Bußgeldkatalog LKW 2026 – Lenkzeiten & Ruhezeiten | Strafen im Überblick',
   description: 'Bußgeldkatalog für LKW-Fahrer 2026: Strafen bei Lenkzeit-, Pausen- und Ruhezeitverstößen nach BKatV und FPersG. Was zahlen Fahrer, was Unternehmer?',
   keywords: 'Bußgeldkatalog LKW, Lenkzeit Bußgeld, Ruhezeit Strafe, Wochenruhe im LKW Strafe, BKatV LKW, FPersG Bußgeld',
-  alternates: { canonical: 'https://lenkzeitrechner.de/bussgeldkatalog' },
+  alternates: { canonical: 'https://www.lenkzeitrechner.de/bussgeldkatalog' },
   openGraph: {
     title: 'Bußgeldkatalog LKW 2026 – Lenk- und Ruhezeiten',
     description: 'Strafen für LKW-Fahrer und Unternehmer bei Verstößen gegen EU VO 561/2006 kompakt erklärt.',
-    url: 'https://lenkzeitrechner.de/bussgeldkatalog',
-    images: [{ url: 'https://lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
+    url: 'https://www.lenkzeitrechner.de/bussgeldkatalog',
+    images: [{ url: 'https://www.lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Bußgeldkatalog LKW 2026', description: 'Strafen für LKW-Fahrer und Unternehmer kompakt erklärt.' },
 };
@@ -49,7 +49,7 @@ export default function Bussgeldkatalog() {
         <nav style={{borderBottom:`1px solid ${C.border}`,background:C.navBg,backdropFilter:'blur(12px)',position:'sticky',top:0,zIndex:100}}>
           <div className="wrap" style={{maxWidth:1200,margin:'0 auto',padding:'0 24px',display:'flex',alignItems:'center',justifyContent:'space-between',height:56,gap:16}}>
             <a href="/" style={{display:'flex',alignItems:'center',gap:10,textDecoration:'none'}}>
-              <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center',fontSize:18}}>🚛</div>
+              <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center'}}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 17h4V5H2v12h3"/><path d="M14 8h4l4 4v5h-3"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></svg></div>
               <span style={{fontWeight:800,fontSize:16,color:C.txt}}>LenkzeitRechner.de</span>
             </a>
             <div style={{display:'flex',alignItems:'center',gap:24}}>
@@ -76,7 +76,7 @@ export default function Bussgeldkatalog() {
           </div>
 
           <section style={card}>
-            <h2 style={h2s}>📖 Rechtsgrundlagen des Bußgeldkatalogs</h2>
+            <h2 style={h2s}>Rechtsgrundlagen des Bußgeldkatalogs</h2>
             <p style={p}>
               Wer als Berufskraftfahrer gegen Lenk- und Ruhezeiten verstößt, zahlt in Deutschland nach einem klar definierten Bußgeldkatalog. Grundlage sind drei Regelwerke: die <span style={accent}>EU-Verordnung (EG) 561/2006</span> legt die materiellen Regeln fest, das <span style={accent}>Fahrpersonalgesetz (FPersG)</span> mit der zugehörigen Fahrpersonalverordnung (FPersV) setzt sie in deutsches Recht um, und die <span style={accent}>Bußgeldkatalog-Verordnung (BKatV)</span> nennt die konkreten Regelsätze in Euro.
             </p>
@@ -89,7 +89,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>⏱ Überschreitung der Tageslenkzeit</h2>
+            <h2 style={h2s}>Überschreitung der Tageslenkzeit</h2>
             <p style={p}>
               Die Tageslenkzeit liegt grundsätzlich bei 9 Stunden und darf maximal zweimal pro Woche auf 10 Stunden erhöht werden (Art. 6 Abs. 1 VO 561/2006). Wer diese Grenze reißt, zahlt gestaffelt nach dem Ausmaß der Überschreitung. Die Regelsätze stehen in Nummer 189 des Bußgeldkatalogs zur BKatV.
             </p>
@@ -112,7 +112,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>📅 Wochenlenkzeit und Doppelwoche</h2>
+            <h2 style={h2s}>Wochenlenkzeit und Doppelwoche</h2>
             <p style={p}>
               Pro Einzelwoche (Montag 00:00 bis Sonntag 24:00) sind 56 Stunden Lenkzeit erlaubt. Über zwei aufeinanderfolgende Wochen gilt zusätzlich eine Obergrenze von 90 Stunden. Wer nach einer 56-Stunden-Woche in der Folgewoche noch über 34 Stunden kommt, verstößt automatisch gegen die Doppelwochenregel, selbst wenn die Einzelwoche für sich genommen zulässig wäre.
             </p>
@@ -134,7 +134,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>☕ Pausen nicht oder zu kurz eingelegt</h2>
+            <h2 style={h2s}>Pausen nicht oder zu kurz eingelegt</h2>
             <p style={p}>
               Spätestens nach 4,5 Stunden Lenkzeit ist eine Pause von 45 Minuten Pflicht, aufteilbar in 15 + 30 Minuten in genau dieser Reihenfolge (Art. 7 VO 561/2006). Wer die Pause vergisst, zu kurz einlegt oder die Reihenfolge tauscht, begeht einen bußgeldbewehrten Verstoß nach BKatV Nr. 187 f.
             </p>
@@ -155,7 +155,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🛏 Verkürzung der täglichen Ruhezeit</h2>
+            <h2 style={h2s}>Verkürzung der täglichen Ruhezeit</h2>
             <p style={p}>
               Die tägliche Ruhezeit beträgt mindestens 11 Stunden und darf maximal dreimal zwischen zwei Wochenruhezeiten auf 9 Stunden verkürzt werden (Art. 8 Abs. 4 VO 561/2006). Jede weitere Verkürzung oder ein Unterschreiten der 9-Stunden-Grenze kostet laut BKatV Nr. 192 ff.:
             </p>
@@ -175,7 +175,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🚫 Wochenruhezeit im Fahrzeug verbracht</h2>
+            <h2 style={h2s}>Wochenruhezeit im Fahrzeug verbracht</h2>
             <p style={p}>
               Seit 2017 ist durch eine Entscheidung des Europäischen Gerichtshofs (Rs. C-102/16 „Vaditrans") klargestellt und in Art. 8 Abs. 8 VO 561/2006 festgeschrieben: Die <span style={accent}>regelmäßige wöchentliche Ruhezeit von 45 Stunden</span> darf nicht in der Fahrerkabine verbracht werden. Sie muss in einer geeigneten, geschlechtergerechten Unterkunft mit Sanitäreinrichtungen stattfinden — in der Regel bezahlt oder gestellt vom Arbeitgeber.
             </p>
@@ -198,7 +198,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>💾 Tachograph und Fahrerkarte</h2>
+            <h2 style={h2s}>Tachograph und Fahrerkarte</h2>
             <p style={p}>
               Wer einen LKW über 3,5 Tonnen oder einen Bus mit mehr als 9 Sitzplätzen führt, muss einen funktionsfähigen digitalen Tachographen nutzen und seine Fahrerkarte einstecken. Verstöße gegen diese Pflichten sind in § 8 FPersG in Verbindung mit BKatV Nr. 178 ff. geregelt und werden ungewöhnlich hart sanktioniert — weil sie den Kern der Kontrollierbarkeit des Systems betreffen.
             </p>
@@ -221,7 +221,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>📝 Aufzeichnungspflicht und 28-Tage-Nachweis</h2>
+            <h2 style={h2s}>Aufzeichnungspflicht und 28-Tage-Nachweis</h2>
             <p style={p}>
               Jeder Berufskraftfahrer muss während der Kontrolle die Daten des laufenden Tages und der vorangegangenen 28 Kalendertage lückenlos vorlegen können (§ 2a FPersV, Art. 36 VO 165/2014). Dazu zählen Fahrerkarte, Ausdrucke des Kontrollgeräts und handschriftliche Nachträge bei Ausfällen.
             </p>
@@ -240,7 +240,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>⚖️ Wer haftet: Fahrer oder Unternehmer?</h2>
+            <h2 style={h2s}>Wer haftet: Fahrer oder Unternehmer?</h2>
             <p style={p}>
               § 8 FPersG regelt die geteilte Verantwortung: Grundsätzlich trägt der Fahrer die Verantwortung für die Einhaltung der Lenk- und Ruhezeiten während seiner Schicht. Der Unternehmer haftet jedoch eigenständig, wenn er Touren so disponiert, dass Verstöße quasi unvermeidlich werden, oder wenn er seine Überwachungspflicht nach § 4 Abs. 3 FPersV vernachlässigt.
             </p>
@@ -258,7 +258,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🎯 Punkte in Flensburg?</h2>
+            <h2 style={h2s}>Punkte in Flensburg?</h2>
             <p style={p}>
               Die gute Nachricht zuerst: Die klassischen Lenk- und Ruhezeitverstöße nach BKatV Nr. 187 – 192 sind <span style={accent}>nicht mit Punkten im Fahreignungsregister</span> verknüpft. Sie gelten als Ordnungswidrigkeiten gegen die Sozialvorschriften im Straßenverkehr, nicht als Verkehrsverstöße im engeren Sinne.
             </p>
@@ -276,7 +276,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🌍 Auslandsverkehr: Deutlich höhere Strafen möglich</h2>
+            <h2 style={h2s}>Auslandsverkehr: Deutlich höhere Strafen möglich</h2>
             <p style={p}>
               Die EU-Sozialvorschriften gelten europaweit einheitlich, aber die Bußgelder sind nationale Angelegenheit. Wer mit seinem LKW in Frankreich, Österreich oder Spanien unterwegs ist, zahlt im Schnitt deutlich mehr als in Deutschland — bei gleichem Verstoß.
             </p>
@@ -284,12 +284,12 @@ export default function Bussgeldkatalog() {
             <table className="sub-tbl">
               <thead><tr><th>Land</th><th>Kabinenruhe 45h</th><th>Überschreitung TLZ &gt; 2h</th></tr></thead>
               <tbody>
-                <tr><td>🇩🇪 Deutschland</td><td>60 € / 500 €</td><td>250 € / 500 €</td></tr>
-                <tr><td>🇫🇷 Frankreich</td><td style={{color:C.error,fontWeight:700}}>bis 30.000 € + 1 Jahr Haft</td><td>750 €</td></tr>
-                <tr><td>🇧🇪 Belgien</td><td style={{color:C.error,fontWeight:700}}>1.800 €</td><td>1.320 €</td></tr>
-                <tr><td>🇦🇹 Österreich</td><td>ab 300 €</td><td style={{color:C.txt,fontWeight:700}}>bis 5.000 €</td></tr>
-                <tr><td>🇪🇸 Spanien</td><td>ab 401 €</td><td>ab 1.501 €</td></tr>
-                <tr><td>🇮🇹 Italien</td><td>ab 422 €</td><td>bis 1.683 €</td></tr>
+                <tr><td>Deutschland</td><td>60 € / 500 €</td><td>250 € / 500 €</td></tr>
+                <tr><td>Frankreich</td><td style={{color:C.error,fontWeight:700}}>bis 30.000 € + 1 Jahr Haft</td><td>750 €</td></tr>
+                <tr><td>Belgien</td><td style={{color:C.error,fontWeight:700}}>1.800 €</td><td>1.320 €</td></tr>
+                <tr><td>Österreich</td><td>ab 300 €</td><td style={{color:C.txt,fontWeight:700}}>bis 5.000 €</td></tr>
+                <tr><td>Spanien</td><td>ab 401 €</td><td>ab 1.501 €</td></tr>
+                <tr><td>Italien</td><td>ab 422 €</td><td>bis 1.683 €</td></tr>
               </tbody>
             </table>
             <p style={p}>
@@ -301,7 +301,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>✉️ Einspruch: Wie Sie gegen den Bußgeldbescheid vorgehen</h2>
+            <h2 style={h2s}>Einspruch: Wie Sie gegen den Bußgeldbescheid vorgehen</h2>
             <p style={p}>
               Ein Bußgeldbescheid ist keine endgültige Entscheidung. Gegen jeden Bescheid kann innerhalb von <span style={accent}>zwei Wochen</span> nach Zustellung Einspruch eingelegt werden (§ 67 OWiG). Die Frist ist strikt und wird auch dann nicht verlängert, wenn der Adressat im Urlaub ist — deshalb sollte der Bescheid sofort nach Erhalt bearbeitet werden.
             </p>
@@ -319,7 +319,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>✅ So vermeiden Sie Bußgelder im Alltag</h2>
+            <h2 style={h2s}>✓ So vermeiden Sie Bußgelder im Alltag</h2>
             <p style={p}>
               Die meisten Verstöße entstehen nicht aus Vorsatz, sondern aus Zeitdruck oder schlechter Tourenplanung. Wer ein paar einfache Routinen einhält, bleibt auf der sicheren Seite:
             </p>
@@ -335,7 +335,7 @@ export default function Bussgeldkatalog() {
           </section>
 
           <div style={{...card,background:`linear-gradient(135deg,rgba(240,136,62,0.08),${C.surface})`,borderColor:'rgba(240,136,62,0.2)',textAlign:'center'}}>
-            <div style={{fontSize:32,marginBottom:12}}>🚛</div>
+            <div style={{fontSize:32,marginBottom:12}}></div>
             <h2 style={{...h2s,textAlign:'center'}}>Bußgelder gar nicht erst riskieren</h2>
             <p style={{...p,textAlign:'center'}}>Mit unserem kostenlosen Lenkzeitrechner sehen Sie sofort, wann die nächste Pause fällig ist und wie viel Lenkzeit noch übrig bleibt — einfach, ohne Anmeldung und ohne App.</p>
             <a href="/" style={{display:'inline-block',background:C.acc,color:'#fff',borderRadius:10,padding:'13px 28px',fontWeight:700,textDecoration:'none',fontSize:15,boxShadow:'0 4px 16px rgba(240,136,62,0.3)'}}>
