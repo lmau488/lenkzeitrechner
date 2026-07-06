@@ -1,4 +1,4 @@
-import AdUnit from './AdUnit';
+import AdUnit from '../AdUnit';
 
 export const metadata = {
   title: 'LKW Pausenrechner 2026 – Pflichtpausen nach EU VO 561/2006 | LenkzeitRechner.de',
