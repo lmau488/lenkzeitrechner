@@ -2,12 +2,12 @@ export const metadata = {
   title: 'LKW Lenkzeiten 2026 – Alles zur EU VO 561/2006 | LenkzeitRechner.de',
   description: 'LKW Lenkzeiten kompakt erklärt: Tageslenkzeit, Wochenlenkzeit, Pflichtpausen und Ruhezeiten nach EU Verordnung 561/2006. Mit Beispielen für Fahrer und Disponenten.',
   keywords: 'LKW Lenkzeiten, Tageslenkzeit LKW, Wochenlenkzeit 56 Stunden, EU 561/2006, Lenkzeiten Fahrer, Lenkzeiten Disponent',
-  alternates: { canonical: 'https://lenkzeitrechner.de/lkw-lenkzeiten' },
+  alternates: { canonical: 'https://www.lenkzeitrechner.de/lkw-lenkzeiten' },
   openGraph: {
     title: 'LKW Lenkzeiten 2026 – Alles zur EU VO 561/2006',
     description: 'Tageslenkzeit, Wochenlenkzeit, Pflichtpausen und Ruhezeiten nach EU VO 561/2006 — kompakt erklärt mit Beispielen.',
-    url: 'https://lenkzeitrechner.de/lkw-lenkzeiten',
-    images: [{ url: 'https://lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
+    url: 'https://www.lenkzeitrechner.de/lkw-lenkzeiten',
+    images: [{ url: 'https://www.lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'LKW Lenkzeiten 2026 – EU VO 561/2006', description: 'Tageslenkzeit, Wochenlenkzeit, Pflichtpausen und Ruhezeiten kompakt erklärt.' },
 };
@@ -49,7 +49,7 @@ export default function LkwLenkzeiten() {
         <nav style={{borderBottom:`1px solid ${C.border}`,background:C.navBg,backdropFilter:'blur(12px)',position:'sticky',top:0,zIndex:100}}>
           <div className="wrap" style={{maxWidth:1200,margin:'0 auto',padding:'0 24px',display:'flex',alignItems:'center',justifyContent:'space-between',height:56,gap:16}}>
             <a href="/" style={{display:'flex',alignItems:'center',gap:10,textDecoration:'none'}}>
-              <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center',fontSize:18}}>🚛</div>
+              <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center'}}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 17h4V5H2v12h3"/><path d="M14 8h4l4 4v5h-3"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></svg></div>
               <span style={{fontWeight:800,fontSize:16,color:C.txt}}>LenkzeitRechner.de</span>
             </a>
             <div style={{display:'flex',alignItems:'center',gap:24}}>
@@ -76,7 +76,7 @@ export default function LkwLenkzeiten() {
           </div>
 
           <section style={card}>
-            <h2 style={h2s}>⏱ Tageslenkzeit</h2>
+            <h2 style={h2s}>Tageslenkzeit</h2>
             <div style={highlight}>
               <strong>Grundregel:</strong> Maximal <span style={accent}>9 Stunden</span> Lenkzeit pro Tag.<br/>
               <strong>Ausnahme:</strong> Bis zu <span style={accent}>10 Stunden</span> — aber maximal <span style={accent}>2-mal pro Woche</span>.
@@ -86,16 +86,16 @@ export default function LkwLenkzeiten() {
             <table className="sub-tbl">
               <thead><tr><th>Tag</th><th>Lenkzeit</th><th>Zulässig?</th></tr></thead>
               <tbody>
-                <tr><td>Montag</td><td>9 Stunden</td><td style={{color:C.success,fontWeight:700}}>✅ Ja</td></tr>
-                <tr><td>Dienstag</td><td>10 Stunden (1. Verlängerung)</td><td style={{color:C.success,fontWeight:700}}>✅ Ja</td></tr>
-                <tr><td>Mittwoch</td><td>10 Stunden (2. Verlängerung)</td><td style={{color:C.success,fontWeight:700}}>✅ Ja</td></tr>
-                <tr><td>Donnerstag</td><td>10 Stunden (3. Verlängerung)</td><td style={{color:C.error,fontWeight:700}}>❌ Nein — max. 2×/Woche</td></tr>
+                <tr><td>Montag</td><td>9 Stunden</td><td style={{color:C.success,fontWeight:700}}>✓ Ja</td></tr>
+                <tr><td>Dienstag</td><td>10 Stunden (1. Verlängerung)</td><td style={{color:C.success,fontWeight:700}}>✓ Ja</td></tr>
+                <tr><td>Mittwoch</td><td>10 Stunden (2. Verlängerung)</td><td style={{color:C.success,fontWeight:700}}>✓ Ja</td></tr>
+                <tr><td>Donnerstag</td><td>10 Stunden (3. Verlängerung)</td><td style={{color:C.error,fontWeight:700}}>✗ Nein — max. 2×/Woche</td></tr>
               </tbody>
             </table>
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>☕ Pflichtpause nach 4,5 Stunden</h2>
+            <h2 style={h2s}>Pflichtpause nach 4,5 Stunden</h2>
             <div style={highlight}>
               Nach spätestens <span style={accent}>4,5 Stunden</span> ununterbrochener Lenkzeit ist eine Pause von mindestens <span style={accent}>45 Minuten</span> Pflicht.
             </div>
@@ -112,7 +112,7 @@ export default function LkwLenkzeiten() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>📅 Wochen- und Doppelwochenlenkzeit</h2>
+            <h2 style={h2s}>Wochen- und Doppelwochenlenkzeit</h2>
             <div style={highlight}>
               <strong>Wochenlenkzeit:</strong> Max. <span style={accent}>56 Stunden</span><br/>
               <strong>Doppelwoche (2 Wochen):</strong> Max. <span style={accent}>90 Stunden</span>
@@ -122,15 +122,15 @@ export default function LkwLenkzeiten() {
             <table className="sub-tbl">
               <thead><tr><th>Woche</th><th>Lenkzeit</th><th>Doppelwoche gesamt</th><th>Status</th></tr></thead>
               <tbody>
-                <tr><td>KW 13</td><td>56h (Maximum)</td><td>56h</td><td style={{color:C.success,fontWeight:700}}>✅ OK</td></tr>
-                <tr><td>KW 14</td><td>34h (Rest)</td><td>90h</td><td style={{color:C.success,fontWeight:700}}>✅ Genau am Limit</td></tr>
-                <tr><td>KW 14</td><td>35h</td><td>91h</td><td style={{color:C.error,fontWeight:700}}>❌ Überschreitung!</td></tr>
+                <tr><td>KW 13</td><td>56h (Maximum)</td><td>56h</td><td style={{color:C.success,fontWeight:700}}>✓ OK</td></tr>
+                <tr><td>KW 14</td><td>34h (Rest)</td><td>90h</td><td style={{color:C.success,fontWeight:700}}>✓ Genau am Limit</td></tr>
+                <tr><td>KW 14</td><td>35h</td><td>91h</td><td style={{color:C.error,fontWeight:700}}>✗ Überschreitung!</td></tr>
               </tbody>
             </table>
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🛏 Ruhezeiten</h2>
+            <h2 style={h2s}>Ruhezeiten</h2>
             <h3 style={h3s}>Tägliche Ruhezeit</h3>
             <p style={p}>Mindestens <span style={accent}>11 Stunden</span> pro Tag. Diese kann auf <strong style={{color:C.txt}}>9 Stunden</strong> verkürzt werden — jedoch maximal <strong style={{color:C.txt}}>3-mal</strong> zwischen zwei wöchentlichen Ruhezeiten. Die verkürzte Ruhezeit muss nicht nachgeholt werden.</p>
             <p style={p}>Alternativ: Die Ruhezeit kann in zwei Teile aufgeteilt werden (3 Stunden + 9 Stunden = 12 Stunden gesamt). Der erste Teil muss mindestens 3 Stunden betragen.</p>
@@ -142,7 +142,7 @@ export default function LkwLenkzeiten() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🚛 Für wen gelten die Lenkzeiten?</h2>
+            <h2 style={h2s}>Für wen gelten die Lenkzeiten?</h2>
             <p style={p}>Die EU VO 561/2006 gilt für:</p>
             <ul style={{...p,paddingLeft:20}}>
               <li>Fahrzeuge zur <strong style={{color:C.txt}}>Güterbeförderung</strong> mit einem zulässigen Gesamtgewicht über <strong style={{color:C.txt}}>3,5 Tonnen</strong></li>
@@ -152,7 +152,7 @@ export default function LkwLenkzeiten() {
           </section>
 
           <div style={{...card,background:`linear-gradient(135deg,rgba(240,136,62,0.08),${C.surface})`,borderColor:'rgba(240,136,62,0.2)',textAlign:'center'}}>
-            <div style={{fontSize:32,marginBottom:12}}>🚛</div>
+            <div style={{fontSize:32,marginBottom:12}}></div>
             <h2 style={{...h2s,textAlign:'center'}}>Lenkzeiten jetzt berechnen</h2>
             <p style={{...p,textAlign:'center'}}>Unser kostenloser Rechner berechnet Pausen, Ruhezeiten und den gesamten Tagesplan — kostenlos, ohne Anmeldung.</p>
             <a href="/" style={{display:'inline-block',background:C.acc,color:'#fff',borderRadius:10,padding:'13px 28px',fontWeight:700,textDecoration:'none',fontSize:15,boxShadow:'0 4px 16px rgba(240,136,62,0.3)'}}>
