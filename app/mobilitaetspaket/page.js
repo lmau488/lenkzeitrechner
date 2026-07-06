@@ -2,12 +2,12 @@ export const metadata = {
   title: 'Mobilitätspaket I – Auswirkungen auf LKW-Fahrer & Speditionen 2026',
   description: 'Mobilitätspaket I der EU: Rückkehrpflicht, Wochenruhe nicht im Fahrzeug, Kabotage-Abkühlzeit, Entsendung. Alle Neuerungen seit 2020 kompakt erklärt.',
   keywords: 'Mobilitätspaket I, VO 2020/1054, Rückkehrpflicht LKW 8 Wochen, Kabotage 4 Tage, Entsendung Fahrer, Mobility Package EU',
-  alternates: { canonical: 'https://lenkzeitrechner.de/mobilitaetspaket' },
+  alternates: { canonical: 'https://www.lenkzeitrechner.de/mobilitaetspaket' },
   openGraph: {
     title: 'Mobilitätspaket I – Lenkzeiten, Rückkehrpflicht, Kabotage',
     description: 'Alle Neuerungen des Mobilitätspakets für den Güterkraftverkehr ab 2020 kompakt erklärt.',
-    url: 'https://lenkzeitrechner.de/mobilitaetspaket',
-    images: [{ url: 'https://lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
+    url: 'https://www.lenkzeitrechner.de/mobilitaetspaket',
+    images: [{ url: 'https://www.lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Mobilitätspaket I – EU Güterverkehr', description: 'Rückkehrpflicht, Kabotage-Abkühlzeit und Smart Tachograph 2 kompakt erklärt.' },
 };
@@ -49,7 +49,7 @@ export default function Mobilitaetspaket() {
         <nav style={{borderBottom:`1px solid ${C.border}`,background:C.navBg,backdropFilter:'blur(12px)',position:'sticky',top:0,zIndex:100}}>
           <div className="wrap" style={{maxWidth:1200,margin:'0 auto',padding:'0 24px',display:'flex',alignItems:'center',justifyContent:'space-between',height:56,gap:16}}>
             <a href="/" style={{display:'flex',alignItems:'center',gap:10,textDecoration:'none'}}>
-              <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center',fontSize:18}}>🚛</div>
+              <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center'}}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 17h4V5H2v12h3"/><path d="M14 8h4l4 4v5h-3"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></svg></div>
               <span style={{fontWeight:800,fontSize:16,color:C.txt}}>LenkzeitRechner.de</span>
             </a>
             <div style={{display:'flex',alignItems:'center',gap:24}}>
@@ -76,7 +76,7 @@ export default function Mobilitaetspaket() {
           </div>
 
           <section style={card}>
-            <h2 style={h2s}>📜 Was ist das Mobilitätspaket I?</h2>
+            <h2 style={h2s}>Was ist das Mobilitätspaket I?</h2>
             <p style={p}>
               Das <span style={accent}>Mobility Package I</span> ist ein Bündel aus drei europäischen Rechtsakten, das der Rat der EU und das Europäische Parlament am <strong style={{color:C.txt}}>15. Juli 2020</strong> verabschiedet haben. Es wurde am <strong style={{color:C.txt}}>31. Juli 2020</strong> im Amtsblatt der EU veröffentlicht und trat in wesentlichen Teilen bereits am <strong style={{color:C.txt}}>20. August 2020</strong> in Kraft. Ziel der Reform ist es, den Straßengüterverkehr im Binnenmarkt fairer zu gestalten, Sozialdumping und Briefkastenfirmen einzudämmen sowie die Arbeits- und Pausenbedingungen für Berufskraftfahrer europaweit zu vereinheitlichen.
             </p>
@@ -95,7 +95,7 @@ export default function Mobilitaetspaket() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🗓 Stufenplan der Umsetzung</h2>
+            <h2 style={h2s}>Stufenplan der Umsetzung</h2>
             <p style={p}>
               Die Umsetzung des Mobilitätspakets erfolgte bewusst in mehreren Stufen, damit Spediteure Fuhrparks und Prozesse anpassen konnten. Viele Pflichten griffen sofort, andere – insbesondere die Nachrüstung alter Fahrtenschreiber – sind erst Ende 2024 und 2025 wirksam geworden.
             </p>
@@ -115,7 +115,7 @@ export default function Mobilitaetspaket() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🛏 Neue Regeln bei Lenk- und Ruhezeiten</h2>
+            <h2 style={h2s}>Neue Regeln bei Lenk- und Ruhezeiten</h2>
             <div style={highlight}>
               <strong>Kernbotschaft:</strong> Die reguläre <span style={accent}>Wochenruhezeit von 45 Stunden</span> darf nicht mehr im Fahrzeug verbracht werden. Der Arbeitgeber muss eine <span style={accent}>geeignete Unterkunft</span> auf eigene Kosten bereitstellen.
             </div>
@@ -145,7 +145,7 @@ export default function Mobilitaetspaket() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🌍 Entsendung von Fahrern (RL 2020/1057)</h2>
+            <h2 style={h2s}>Entsendung von Fahrern (RL 2020/1057)</h2>
             <p style={p}>
               Die Entsenderichtlinie für den Straßenverkehr ist seit dem <strong style={{color:C.txt}}>2. Februar 2022</strong> unmittelbar anzuwenden. Sie definiert erstmals sektor-spezifisch, wann ein Fahrer im Sinne der allgemeinen Entsenderichtlinie 96/71/EG entsandt ist und welche arbeitsrechtlichen Vorschriften des Gastmitgliedstaats greifen – insbesondere <span style={accent}>Mindestlohn, bezahlter Urlaub und Arbeitsschutz</span>.
             </p>
@@ -170,7 +170,7 @@ export default function Mobilitaetspaket() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🔁 Kabotage mit Abkühlzeit</h2>
+            <h2 style={h2s}>Kabotage mit Abkühlzeit</h2>
             <p style={p}>
               Die Regeln der VO 1072/2009 zur Kabotage blieben im Grundsatz bestehen: maximal <span style={accent}>drei Kabotagebeförderungen</span> innerhalb von <span style={accent}>sieben Tagen</span> nach einer internationalen Beförderung. Neu ist mit Artikel 2 Nummer 4 Buchstabe a der VO (EU) 2020/1055 die sogenannte <strong style={{color:C.txt}}>Cooling-off-Period</strong>: Nach Ablauf der Kabotagefrist darf derselbe Unternehmer mit demselben Fahrzeug <span style={accent}>vier Tage lang</span> keine weitere Kabotage im zuvor bedienten Mitgliedstaat durchführen.
             </p>
@@ -191,7 +191,7 @@ export default function Mobilitaetspaket() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>📡 Smart Tachograph Version 2</h2>
+            <h2 style={h2s}>Smart Tachograph Version 2</h2>
             <p style={p}>
               Die zweite Generation des intelligenten Fahrtenschreibers (Smart Tachograph Version 2, kurz <span style={accent}>V2</span>) ist das technische Rückgrat des Mobilitätspakets. Er basiert auf der Durchführungsverordnung (EU) 2021/1228 der Kommission und bietet Funktionen, mit denen Behörden die neuen Pflichten zuverlässig prüfen können.
             </p>
@@ -219,7 +219,7 @@ export default function Mobilitaetspaket() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🏢 Auswirkungen auf Spediteure, Fahrer und KMU</h2>
+            <h2 style={h2s}>Auswirkungen auf Spediteure, Fahrer und KMU</h2>
             <h3 style={h3s}>Für Transportunternehmer</h3>
             <p style={p}>
               Die Rückkehrpflicht des Fahrzeugs alle acht Wochen zwingt zu einer vollständigen Neuplanung der Touren. Leerfahrten nahmen laut <strong style={{color:C.txt}}>Europäischem Rechnungshof</strong> (Sonderbericht 07/2023) in einzelnen Mitgliedstaaten um bis zu 2 % zu. Gleichzeitig müssen Dispositionen die IMI-Meldungen fristgerecht einpflegen – inklusive A1-Bescheinigungen, Mindestlohnnachweisen und Frachtpapieren nach Artikel 8 VO 1072/2009.
@@ -239,7 +239,7 @@ export default function Mobilitaetspaket() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>⚖ Kritik und Diskussion zur Rückkehrpflicht</h2>
+            <h2 style={h2s}>Kritik und Diskussion zur Rückkehrpflicht</h2>
             <p style={p}>
               Kritiker sehen in der Rückkehrpflicht des Fahrzeugs einen Eingriff in die Dienstleistungs- und Warenverkehrsfreiheit sowie eine Belastung für das Klima. Eine Studie des wissenschaftlichen Dienstes der Europäischen Kommission (Joint Research Centre, Report JRC122 733) schätzte Mehrfahrten von bis zu 2,9 Milliarden Kilometern pro Jahr sowie zusätzliche CO₂-Emissionen im mittleren einstelligen Millionenbereich. Befürworter – allen voran Frankreich, Deutschland und die gewerkschaftsnahe ETF – verweisen hingegen auf faire Wettbewerbsbedingungen und den sozialen Schutz der Fahrer.
             </p>
@@ -249,7 +249,7 @@ export default function Mobilitaetspaket() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>📊 Alt vs. Neu – der kompakte Vergleich</h2>
+            <h2 style={h2s}>Alt vs. Neu – der kompakte Vergleich</h2>
             <table className="sub-tbl">
               <thead><tr><th>Regel</th><th>Vor 08/2020</th><th>Seit Mobilitätspaket</th></tr></thead>
               <tbody>
@@ -266,7 +266,7 @@ export default function Mobilitaetspaket() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🧭 Fazit für die Praxis 2026</h2>
+            <h2 style={h2s}>Fazit für die Praxis 2026</h2>
             <p style={p}>
               Nach fast sechs Jahren ist das Mobilitätspaket I vollständig ausgerollt. Wer im grenzüberschreitenden Güterverkehr unterwegs ist, muss heute drei Dinge fest im Blick haben: die <span style={accent}>Rückkehrfristen</span> von Fahrer (4 Wochen) und Fahrzeug (8 Wochen), die <span style={accent}>Kabotage-Abkühlphase</span> von vier Tagen und die <span style={accent}>IMI-Meldung</span> jeder Entsendung. Der Smart Tachograph V2 erfasst diese Ereignisse automatisch – wer versucht zu tricksen, wird durch die Auswertung der letzten 56 Tage bei der nächsten Kontrolle identifiziert.
             </p>
@@ -276,7 +276,7 @@ export default function Mobilitaetspaket() {
           </section>
 
           <div style={{...card,background:`linear-gradient(135deg,rgba(240,136,62,0.08),${C.surface})`,borderColor:'rgba(240,136,62,0.2)',textAlign:'center'}}>
-            <div style={{fontSize:32,marginBottom:12}}>🚛</div>
+            <div style={{fontSize:32,marginBottom:12}}></div>
             <h2 style={{...h2s,textAlign:'center'}}>Mobilitätspaket-konform planen</h2>
             <p style={{...p,textAlign:'center'}}>Unser kostenloser Rechner berücksichtigt alle Regeln des Mobilitätspakets I – inklusive Rückkehrfristen, Kabotage und verkürzter Wochenruhen. Ohne Anmeldung, ohne Werbung für Dritte.</p>
             <a href="/" style={{display:'inline-block',background:C.acc,color:'#fff',borderRadius:10,padding:'13px 28px',fontWeight:700,textDecoration:'none',fontSize:15,boxShadow:'0 4px 16px rgba(240,136,62,0.3)'}}>
