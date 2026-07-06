@@ -15,11 +15,10 @@ export const metadata = {
     description: 'Kostenloser Online-Rechner für LKW Lenk- und Ruhezeiten nach EU VO 561/2006. Pflichtpausen, Tagesplan, Bußgelder — in 7 Sprachen.',
     type: 'website',
     locale: 'de_DE',
-    alternateLocale: ['en_US', 'ro_RO', 'pl_PL', 'cs_CZ', 'bg_BG', 'ru_RU'],
-    url: 'https://lenkzeitrechner.de',
+    url: 'https://www.lenkzeitrechner.de',
     siteName: 'LenkzeitRechner.de',
     images: [{
-      url: 'https://lenkzeitrechner.de/og-image.svg',
+      url: 'https://www.lenkzeitrechner.de/og-image.svg',
       width: 1200,
       height: 630,
       alt: 'LenkzeitRechner.de – Lenk- und Ruhezeiten nach EU VO 561/2006',
@@ -29,20 +28,14 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'LenkzeitRechner – Lenk- und Ruhezeiten kostenlos berechnen',
     description: 'Kostenloser Online-Rechner für LKW Lenk- und Ruhezeiten nach EU VO 561/2006. In 7 Sprachen verfügbar.',
-    images: ['https://lenkzeitrechner.de/og-image.svg'],
+    images: ['https://www.lenkzeitrechner.de/og-image.svg'],
   },
   robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   alternates: {
-    canonical: 'https://lenkzeitrechner.de',
+    canonical: 'https://www.lenkzeitrechner.de',
     languages: {
-      'de': 'https://lenkzeitrechner.de',
-      'en': 'https://lenkzeitrechner.de',
-      'ro': 'https://lenkzeitrechner.de',
-      'pl': 'https://lenkzeitrechner.de',
-      'cs': 'https://lenkzeitrechner.de',
-      'bg': 'https://lenkzeitrechner.de',
-      'ru': 'https://lenkzeitrechner.de',
-      'x-default': 'https://lenkzeitrechner.de',
+      'de': 'https://www.lenkzeitrechner.de',
+      'x-default': 'https://www.lenkzeitrechner.de',
     },
   },
   icons: {
@@ -74,22 +67,22 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "LenkzeitRechner.de",
-    "url": "https://lenkzeitrechner.de",
+    "url": "https://www.lenkzeitrechner.de",
     "description": "Kostenloser Online-Rechner für Lenk- und Ruhezeiten nach EU-Verordnung 561/2006.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "All",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
     "availableLanguage": ["de","en","ro","pl","cs","bg","ru"],
-    "inLanguage": ["de","en","ro","pl","cs","bg","ru"],
+    "inLanguage": "de",
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://lenkzeitrechner.de" },
-      { "@type": "ListItem", "position": 2, "name": "LKW Lenkzeiten", "item": "https://lenkzeitrechner.de/lkw-lenkzeiten" },
-      { "@type": "ListItem", "position": 3, "name": "Pausenrechner", "item": "https://lenkzeitrechner.de/pausenrechner" },
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://www.lenkzeitrechner.de" },
+      { "@type": "ListItem", "position": 2, "name": "LKW Lenkzeiten", "item": "https://www.lenkzeitrechner.de/lkw-lenkzeiten" },
+      { "@type": "ListItem", "position": 3, "name": "Pausenrechner", "item": "https://www.lenkzeitrechner.de/pausenrechner" },
     ]
   };
 
@@ -97,8 +90,8 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "LenkzeitRechner.de",
-    "url": "https://lenkzeitrechner.de",
-    "logo": "https://lenkzeitrechner.de/favicon.svg",
+    "url": "https://www.lenkzeitrechner.de",
+    "logo": "https://www.lenkzeitrechner.de/favicon.svg",
     "sameAs": [],
   };
 
@@ -111,14 +104,8 @@ export default function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="alternate" hrefLang="de" href="https://lenkzeitrechner.de" />
-        <link rel="alternate" hrefLang="en" href="https://lenkzeitrechner.de" />
-        <link rel="alternate" hrefLang="ro" href="https://lenkzeitrechner.de" />
-        <link rel="alternate" hrefLang="pl" href="https://lenkzeitrechner.de" />
-        <link rel="alternate" hrefLang="cs" href="https://lenkzeitrechner.de" />
-        <link rel="alternate" hrefLang="bg" href="https://lenkzeitrechner.de" />
-        <link rel="alternate" hrefLang="ru" href="https://lenkzeitrechner.de" />
-        <link rel="alternate" hrefLang="x-default" href="https://lenkzeitrechner.de" />
+        <link rel="alternate" hrefLang="de" href="https://www.lenkzeitrechner.de" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.lenkzeitrechner.de" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
