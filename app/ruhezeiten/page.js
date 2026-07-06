@@ -2,12 +2,12 @@ export const metadata = {
   title: 'Ruhezeiten LKW 2026 – Tägliche & wöchentliche Ruhezeit | EU VO 561/2006',
   description: 'Ruhezeiten für LKW-Fahrer nach EU VO 561/2006: tägliche Ruhezeit 11h, verkürzte Ruhezeit 9h, wöchentliche Ruhezeit 45h. Mit Beispielen, Ausnahmen und Bußgeldern.',
   keywords: 'Ruhezeiten LKW, tägliche Ruhezeit, wöchentliche Ruhezeit, EU 561/2006 Ruhezeit, verkürzte Ruhezeit 9h, Wochenruhezeit 45h',
-  alternates: { canonical: 'https://lenkzeitrechner.de/ruhezeiten' },
+  alternates: { canonical: 'https://www.lenkzeitrechner.de/ruhezeiten' },
   openGraph: {
     title: 'Ruhezeiten LKW 2026 – EU VO 561/2006',
     description: 'Tägliche und wöchentliche Ruhezeiten für Berufskraftfahrer kompakt erklärt.',
-    url: 'https://lenkzeitrechner.de/ruhezeiten',
-    images: [{ url: 'https://lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
+    url: 'https://www.lenkzeitrechner.de/ruhezeiten',
+    images: [{ url: 'https://www.lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Ruhezeiten LKW 2026 – EU VO 561/2006', description: 'Tägliche und wöchentliche Ruhezeiten kompakt erklärt.' },
 };
@@ -49,7 +49,7 @@ export default function Ruhezeiten() {
         <nav style={{borderBottom:`1px solid ${C.border}`,background:C.navBg,backdropFilter:'blur(12px)',position:'sticky',top:0,zIndex:100}}>
           <div className="wrap" style={{maxWidth:1200,margin:'0 auto',padding:'0 24px',display:'flex',alignItems:'center',justifyContent:'space-between',height:56,gap:16}}>
             <a href="/" style={{display:'flex',alignItems:'center',gap:10,textDecoration:'none'}}>
-              <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center',fontSize:18}}>🚛</div>
+              <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center'}}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 17h4V5H2v12h3"/><path d="M14 8h4l4 4v5h-3"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></svg></div>
               <span style={{fontWeight:800,fontSize:16,color:C.txt}}>LenkzeitRechner.de</span>
             </a>
             <div style={{display:'flex',alignItems:'center',gap:24}}>
@@ -76,7 +76,7 @@ export default function Ruhezeiten() {
           </div>
 
           <section style={card}>
-            <h2 style={h2s}>🛏 Was zählt als Ruhezeit?</h2>
+            <h2 style={h2s}>Was zählt als Ruhezeit?</h2>
             <p style={p}>Ruhezeit ist nach <span style={accent}>Art. 4 Buchstabe f VO 561/2006</span> jeder ununterbrochene Zeitraum, in dem der Fahrer frei über seine Zeit verfügen kann. Das bedeutet konkret: keine Fahrtätigkeit, keine Ladearbeiten, keine Bereitschaft. Die Ruhezeit grenzt sich damit klar von der Lenkzeit, der sonstigen Arbeitszeit und der Bereitschaftszeit ab.</p>
             <p style={p}>Die Verordnung unterscheidet zwei Hauptformen: die <strong style={{color:C.txt}}>tägliche Ruhezeit</strong> (zwischen zwei Arbeitstagen) und die <strong style={{color:C.txt}}>wöchentliche Ruhezeit</strong> (am Ende einer Arbeitswoche). Beide haben unterschiedliche Mindestdauern, unterschiedliche Verkürzungsmöglichkeiten und unterschiedliche Regeln, wo sie verbracht werden dürfen.</p>
             <div style={highlight}>
@@ -85,7 +85,7 @@ export default function Ruhezeiten() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>⏱ Tägliche Ruhezeit – 11 Stunden Regel</h2>
+            <h2 style={h2s}>Tägliche Ruhezeit – 11 Stunden Regel</h2>
             <div style={highlight}>
               <strong>Regelmäßige tägliche Ruhezeit:</strong> mindestens <span style={accent}>11 Stunden</span> zusammenhängend.<br/>
               <strong>Berechnungszeitraum:</strong> innerhalb von 24 Stunden nach Ende der vorherigen Ruhezeit (Art. 8 Abs. 2 VO 561/2006).
@@ -107,7 +107,7 @@ export default function Ruhezeiten() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🔻 Verkürzte tägliche Ruhezeit – 9 Stunden</h2>
+            <h2 style={h2s}>Verkürzte tägliche Ruhezeit – 9 Stunden</h2>
             <div style={highlight}>
               <strong>Verkürzte Ruhezeit:</strong> mindestens <span style={accent}>9 Stunden</span>, aber weniger als 11 Stunden.<br/>
               <strong>Grenze:</strong> maximal <span style={accent}>3-mal</span> zwischen zwei wöchentlichen Ruhezeiten (Art. 8 Abs. 2).
@@ -118,17 +118,17 @@ export default function Ruhezeiten() {
             <table className="sub-tbl">
               <thead><tr><th>Tag</th><th>Ruhezeit</th><th>Bewertung</th></tr></thead>
               <tbody>
-                <tr><td>Mo → Di</td><td>9h (verkürzt 1)</td><td style={{color:C.success,fontWeight:700}}>✅ zulässig</td></tr>
-                <tr><td>Di → Mi</td><td>11h (regulär)</td><td style={{color:C.success,fontWeight:700}}>✅ zulässig</td></tr>
-                <tr><td>Mi → Do</td><td>9h (verkürzt 2)</td><td style={{color:C.success,fontWeight:700}}>✅ zulässig</td></tr>
-                <tr><td>Do → Fr</td><td>9h (verkürzt 3)</td><td style={{color:C.success,fontWeight:700}}>✅ letzte erlaubte</td></tr>
-                <tr><td>Fr → Sa</td><td>9h (verkürzt 4)</td><td style={{color:C.error,fontWeight:700}}>❌ Verstoß!</td></tr>
+                <tr><td>Mo → Di</td><td>9h (verkürzt 1)</td><td style={{color:C.success,fontWeight:700}}>✓ zulässig</td></tr>
+                <tr><td>Di → Mi</td><td>11h (regulär)</td><td style={{color:C.success,fontWeight:700}}>✓ zulässig</td></tr>
+                <tr><td>Mi → Do</td><td>9h (verkürzt 2)</td><td style={{color:C.success,fontWeight:700}}>✓ zulässig</td></tr>
+                <tr><td>Do → Fr</td><td>9h (verkürzt 3)</td><td style={{color:C.success,fontWeight:700}}>✓ letzte erlaubte</td></tr>
+                <tr><td>Fr → Sa</td><td>9h (verkürzt 4)</td><td style={{color:C.error,fontWeight:700}}>✗ Verstoß!</td></tr>
               </tbody>
             </table>
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>📅 Wöchentliche Ruhezeit – 45 Stunden</h2>
+            <h2 style={h2s}>Wöchentliche Ruhezeit – 45 Stunden</h2>
             <div style={highlight}>
               <strong>Regelmäßige wöchentliche Ruhezeit:</strong> mindestens <span style={accent}>45 Stunden</span> am Stück.<br/>
               <strong>Reduzierte wöchentliche Ruhezeit:</strong> mindestens <span style={accent}>24 Stunden</span>.<br/>
@@ -141,15 +141,15 @@ export default function Ruhezeiten() {
             <table className="sub-tbl">
               <thead><tr><th>Kalenderwoche</th><th>Ruhezeit A</th><th>Ruhezeit B</th><th>Bewertung</th></tr></thead>
               <tbody>
-                <tr><td>KW 15</td><td>45h (regulär)</td><td>–</td><td style={{color:C.success,fontWeight:700}}>✅ OK</td></tr>
-                <tr><td>KW 16</td><td>24h (reduziert)</td><td>21h Nachholung in KW 18</td><td style={{color:C.success,fontWeight:700}}>✅ OK bei Ausgleich</td></tr>
-                <tr><td>KW 15</td><td>24h</td><td>KW 16: erneut 24h</td><td style={{color:C.error,fontWeight:700}}>❌ unzulässig</td></tr>
+                <tr><td>KW 15</td><td>45h (regulär)</td><td>–</td><td style={{color:C.success,fontWeight:700}}>✓ OK</td></tr>
+                <tr><td>KW 16</td><td>24h (reduziert)</td><td>21h Nachholung in KW 18</td><td style={{color:C.success,fontWeight:700}}>✓ OK bei Ausgleich</td></tr>
+                <tr><td>KW 15</td><td>24h</td><td>KW 16: erneut 24h</td><td style={{color:C.error,fontWeight:700}}>✗ unzulässig</td></tr>
               </tbody>
             </table>
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🏠 Wochenruhezeit nicht im Fahrzeug!</h2>
+            <h2 style={h2s}>Wochenruhezeit nicht im Fahrzeug!</h2>
             <div style={{background:'rgba(239,68,68,0.1)',border:'1px solid rgba(239,68,68,0.25)',borderRadius:12,padding:'16px 20px',marginBottom:16}}>
               <strong style={{color:C.error}}>Wichtig:</strong> <span style={{color:C.muted}}>Die regelmäßige wöchentliche Ruhezeit (45h) und jede Ausgleichsruhezeit von mehr als 45 Stunden dürfen nach <span style={accent}>Art. 8 Abs. 8 VO 561/2006</span> <strong style={{color:C.txt}}>nicht im Fahrzeug</strong> verbracht werden.</span>
             </div>
@@ -168,13 +168,13 @@ export default function Ruhezeiten() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🏡 Rückkehrpflicht zur Heimatbasis</h2>
+            <h2 style={h2s}>Rückkehrpflicht zur Heimatbasis</h2>
             <p style={p}>Mit dem Mobilitätspaket I wurde nach <span style={accent}>Art. 8 Abs. 8a VO 561/2006</span> eine Rückkehrpflicht des Fahrers eingeführt. Der Arbeitgeber muss die Arbeit so organisieren, dass der Fahrer in jedem Zeitraum von <strong style={{color:C.txt}}>vier aufeinanderfolgenden Wochen</strong> eine regelmäßige wöchentliche Ruhezeit (oder eine wöchentliche Ruhezeit von mehr als 45 Stunden) entweder am <strong style={{color:C.txt}}>Wohnort</strong> des Fahrers oder an der <strong style={{color:C.txt}}>Betriebsstätte</strong> des Arbeitgebers verbringen kann.</p>
             <p style={p}>Nutzt der Fahrer zwei aufeinanderfolgende reduzierte Wochenruhezeiten im Ausland, verkürzt sich der Zeitraum auf drei Wochen. Der Nachweis erfolgt über Tachographenaufzeichnungen, Arbeitspläne und gegebenenfalls Belege über die Unterkunft.</p>
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>⛴ Fähr- und Zugausnahme</h2>
+            <h2 style={h2s}>Fähr- und Zugausnahme</h2>
             <div style={highlight}>
               Nach <span style={accent}>Art. 9 VO 561/2006</span> darf die tägliche Ruhezeit bei Fahrten mit Fähre oder Zug unter bestimmten Voraussetzungen <strong>zweimal unterbrochen</strong> werden — insgesamt höchstens 1 Stunde.
             </div>
@@ -183,7 +183,7 @@ export default function Ruhezeiten() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>👥 Mehrfahrerbetrieb (Doppelbesatzung)</h2>
+            <h2 style={h2s}>Mehrfahrerbetrieb (Doppelbesatzung)</h2>
             <p style={p}>Im Mehrfahrerbetrieb gilt nach <span style={accent}>Art. 8 Abs. 5 VO 561/2006</span> eine Besonderheit: Jeder Fahrer muss innerhalb von <strong style={{color:C.txt}}>30 Stunden</strong> nach Ende der letzten täglichen oder wöchentlichen Ruhezeit eine neue tägliche Ruhezeit von mindestens <strong style={{color:C.txt}}>9 Stunden</strong> eingelegt haben. In den ersten 60 Minuten nach Antritt der Doppelbesatzung darf ein zweiter Fahrer optional, danach muss er an Bord sein.</p>
             <p style={p}>Praktisch bedeutet das: Während Fahrer A fährt, kann Fahrer B auf dem Beifahrersitz (oder in der Liegekabine, sofern das Fahrzeug in Bewegung ist) Zeit verbringen. Diese Zeit gilt jedoch <em>nicht</em> als Ruhezeit, sondern als <strong style={{color:C.txt}}>Bereitschaftszeit</strong>. Die eigentliche Ruhezeit muss stehend absolviert werden — aber eben nur mindestens 9 Stunden statt 11.</p>
             <h3 style={h3s}>Zeitliche Struktur im Team</h3>
@@ -199,7 +199,7 @@ export default function Ruhezeiten() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>📋 Dokumentation und Kontrollen</h2>
+            <h2 style={h2s}>Dokumentation und Kontrollen</h2>
             <p style={p}>Alle Ruhezeiten werden vom digitalen Tachographen automatisch aufgezeichnet, sobald das Fahrzeug steht und keine Aktivität (Lenken, sonstige Arbeit, Bereitschaft) manuell eingelegt ist. Fahrer sind nach <span style={accent}>§ 1 Fahrpersonalverordnung (FPersV)</span> verpflichtet, Aktivitäten außerhalb des Fahrzeugs (z. B. Dienstantritt zu Hause, Be- oder Entladung) manuell einzutragen.</p>
             <p style={p}>Bei einer Kontrolle durch das Bundesamt für Logistik und Mobilität (BALM, früher BAG) oder die Polizei müssen die Daten der <strong style={{color:C.txt}}>letzten 28 Tage</strong> jederzeit abrufbar sein — auf der Fahrerkarte und im Massenspeicher des Fahrzeugs. Fehlende Tage müssen über Ausdrucke oder Bescheinigungen (Formblatt EU Nr. 2006/22/EG) belegt werden.</p>
             <div style={highlight}>
@@ -208,7 +208,7 @@ export default function Ruhezeiten() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>❓ Häufige Praxisfragen</h2>
+            <h2 style={h2s}>Häufige Praxisfragen</h2>
             <h3 style={h3s}>Darf ich meine Ruhezeit unterbrechen, um das Fahrzeug umzuparken?</h3>
             <p style={p}>Grundsätzlich nein. Jede Aktivität auf der Fahrerkarte beendet die Ruhezeit. In der Praxis gilt jedoch eine Toleranz für <strong style={{color:C.txt}}>wenige Minuten</strong> Rangieren auf Raststätten, wenn dies vom Platzwart oder der Polizei angeordnet wird. Besser ist, vorher einen geeigneten Stellplatz zu wählen.</p>
             <h3 style={h3s}>Zählt eine Pause von 45 Minuten als Ruhezeit?</h3>
@@ -220,7 +220,7 @@ export default function Ruhezeiten() {
           </section>
 
           <div style={{...card,background:`linear-gradient(135deg,rgba(240,136,62,0.08),${C.surface})`,borderColor:'rgba(240,136,62,0.2)',textAlign:'center'}}>
-            <div style={{fontSize:32,marginBottom:12}}>🛏</div>
+            <div style={{fontSize:32,marginBottom:12}}></div>
             <h2 style={{...h2s,textAlign:'center'}}>Ruhezeiten korrekt planen</h2>
             <p style={{...p,textAlign:'center'}}>Unser kostenloser Lenkzeitrechner plant automatisch tägliche und wöchentliche Ruhezeiten nach EU VO 561/2006 — inklusive verkürzter Varianten und Ausgleichsruhezeiten.</p>
             <a href="/" style={{display:'inline-block',background:C.acc,color:'#fff',borderRadius:10,padding:'13px 28px',fontWeight:700,textDecoration:'none',fontSize:15,boxShadow:'0 4px 16px rgba(240,136,62,0.3)'}}>
