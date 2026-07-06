@@ -2,12 +2,12 @@ export const metadata = {
   title: 'Über uns – Wer steht hinter LenkzeitRechner.de?',
   description: 'Erfahren Sie, wer LenkzeitRechner.de betreibt, auf welchen Rechtsquellen der Rechner basiert und wie wir die Inhalte aktuell halten. Transparenz, Methodik und Kontakt.',
   keywords: 'Über uns LenkzeitRechner, Autor Lenkzeitrechner, Methodik Lenkzeiten, Quellen EU VO 561/2006',
-  alternates: { canonical: 'https://lenkzeitrechner.de/ueber-uns' },
+  alternates: { canonical: 'https://www.lenkzeitrechner.de/ueber-uns' },
   openGraph: {
     title: 'Über uns – LenkzeitRechner.de',
     description: 'Wer steht hinter LenkzeitRechner.de? Unsere Methodik, Quellen und redaktionelle Grundsätze.',
-    url: 'https://lenkzeitrechner.de/ueber-uns',
-    images: [{ url: 'https://lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
+    url: 'https://www.lenkzeitrechner.de/ueber-uns',
+    images: [{ url: 'https://www.lenkzeitrechner.de/og-image.svg', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image', title: 'Über uns – LenkzeitRechner.de', description: 'Wer steht hinter LenkzeitRechner.de? Methodik und Quellen transparent erklärt.' },
 };
@@ -46,7 +46,7 @@ export default function UeberUns() {
         <nav style={{borderBottom:`1px solid ${C.border}`,background:C.navBg,backdropFilter:'blur(12px)',position:'sticky',top:0,zIndex:100}}>
           <div className="wrap" style={{maxWidth:1200,margin:'0 auto',padding:'0 24px',display:'flex',alignItems:'center',justifyContent:'space-between',height:56,gap:16}}>
             <a href="/" style={{display:'flex',alignItems:'center',gap:10,textDecoration:'none'}}>
-              <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center',fontSize:18}}>🚛</div>
+              <div style={{background:'linear-gradient(135deg,#f97316,#ea580c)',borderRadius:10,width:34,height:34,display:'flex',alignItems:'center',justifyContent:'center'}}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 17h4V5H2v12h3"/><path d="M14 8h4l4 4v5h-3"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></svg></div>
               <span style={{fontWeight:800,fontSize:16,color:C.txt}}>LenkzeitRechner.de</span>
             </a>
             <div style={{display:'flex',alignItems:'center',gap:24}}>
@@ -73,7 +73,7 @@ export default function UeberUns() {
           </div>
 
           <section style={card}>
-            <h2 style={h2s}>👤 Verantwortlich für Inhalt und Betrieb</h2>
+            <h2 style={h2s}>Verantwortlich für Inhalt und Betrieb</h2>
             <div style={highlight}>
               <strong style={{color:C.txt}}>Luis Mauermaier</strong><br/>
               Wolnzacher Weg 9a, 85283 Wolnzach, Deutschland<br/>
@@ -88,7 +88,7 @@ export default function UeberUns() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>📚 Methodik: Woher stammen die Inhalte?</h2>
+            <h2 style={h2s}>Methodik: Woher stammen die Inhalte?</h2>
             <p style={p}>
               Grundlage aller Berechnungen und redaktionellen Beiträge sind ausschließlich öffentlich zugängliche, rechtsverbindliche Primärquellen. Wir zitieren keine Sekundärliteratur, ohne die Originalverordnung gegengeprüft zu haben. Die wichtigsten Quellen im Überblick:
             </p>
@@ -110,7 +110,7 @@ export default function UeberUns() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🧮 Wie funktioniert der Rechner technisch?</h2>
+            <h2 style={h2s}>Wie funktioniert der Rechner technisch?</h2>
             <p style={p}>
               Der LenkzeitRechner ist eine reine Client-seitige Anwendung: Alle Berechnungen laufen direkt im Browser ab, <strong style={{color:C.txt}}>es werden keine Eingabedaten an einen Server übertragen</strong>. Das hat zwei Vorteile:
             </p>
@@ -127,7 +127,7 @@ export default function UeberUns() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🎯 Zielgruppe</h2>
+            <h2 style={h2s}>Zielgruppe</h2>
             <p style={p}>
               Unsere Inhalte richten sich an alle, die im Alltag mit Lenk- und Ruhezeiten zu tun haben:
             </p>
@@ -144,7 +144,7 @@ export default function UeberUns() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>🌍 Mehrsprachigkeit: warum sieben Sprachen?</h2>
+            <h2 style={h2s}>Mehrsprachigkeit: warum sieben Sprachen?</h2>
             <p style={p}>
               Der europäische Güterverkehr ist vielsprachig. Viele Fahrer in deutschen Flotten kommen aus Polen, Rumänien, Bulgarien, Tschechien oder haben russische Sprachkenntnisse. Deshalb bieten wir die Rechner-Oberfläche in sieben Sprachen an: Deutsch, Englisch, Rumänisch, Polnisch, Tschechisch, Bulgarisch und Russisch. Alle Texte wurden muttersprachlich gegengelesen und fachterminologisch abgestimmt — Begriffe wie „Pflichtpause", „Tachograph" oder „Doppelwoche" haben in jeder Sprache eine eindeutige Entsprechung.
             </p>
@@ -154,7 +154,7 @@ export default function UeberUns() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>♻️ Wann werden Inhalte aktualisiert?</h2>
+            <h2 style={h2s}>Wann werden Inhalte aktualisiert?</h2>
             <p style={p}>
               Wir überprüfen die Inhalte in folgenden Fällen:
             </p>
@@ -169,7 +169,7 @@ export default function UeberUns() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>💶 Finanzierung und Unabhängigkeit</h2>
+            <h2 style={h2s}>Finanzierung und Unabhängigkeit</h2>
             <p style={p}>
               LenkzeitRechner.de ist kostenlos nutzbar und ohne Registrierung erreichbar. Der Betrieb (Hosting, Domain, laufende Pflege) wird durch <strong style={{color:C.txt}}>kontextbezogene Google-AdSense-Werbung</strong> finanziert, die klar als Anzeige gekennzeichnet ist. Redaktionelle Inhalte und die Rechenlogik sind vollständig unabhängig von werbetreibenden Unternehmen — wir empfehlen keine Produkte, erhalten keine Affiliate-Provisionen und bevorzugen keine Hersteller von Tachographen, Telematik- oder Speditionssoftware.
             </p>
@@ -179,7 +179,7 @@ export default function UeberUns() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>⚖️ Redaktionelle Grundsätze</h2>
+            <h2 style={h2s}>Redaktionelle Grundsätze</h2>
             <ul style={{...p,paddingLeft:20,lineHeight:2}}>
               <li><strong style={{color:C.txt}}>Primärquellen vor Sekundärliteratur.</strong> Jede konkrete Zahl (Stundenzahl, Bußgeldhöhe, Fristen) wird mit einem Artikel- oder Paragraphenverweis belegt.</li>
               <li><strong style={{color:C.txt}}>Keine Rechtsberatung.</strong> Wir geben eine qualifizierte redaktionelle Einordnung, ersetzen aber keine anwaltliche Beratung im Einzelfall.</li>
@@ -190,7 +190,7 @@ export default function UeberUns() {
           </section>
 
           <section style={card}>
-            <h2 style={h2s}>📬 Kontakt, Hinweise und Kritik</h2>
+            <h2 style={h2s}>Kontakt, Hinweise und Kritik</h2>
             <p style={p}>
               Wir freuen uns über jede Rückmeldung — ob Lob, konkrete Verbesserungsvorschläge, fachliche Korrekturen oder die Meldung eines Darstellungsfehlers auf einem bestimmten Gerät. Schreiben Sie an <span style={accent}>luis.mauermaier@proton.me</span>. In der Regel antworten wir innerhalb von zwei bis drei Werktagen.
             </p>
@@ -200,7 +200,7 @@ export default function UeberUns() {
           </section>
 
           <div style={{...card,background:`linear-gradient(135deg,rgba(240,136,62,0.08),${C.surface})`,borderColor:'rgba(240,136,62,0.2)',textAlign:'center'}}>
-            <div style={{fontSize:32,marginBottom:12}}>🚛</div>
+            <div style={{fontSize:32,marginBottom:12}}></div>
             <h2 style={{...h2s,textAlign:'center'}}>Direkt zum Rechner</h2>
             <p style={{...p,textAlign:'center'}}>Lenk- und Ruhezeiten in wenigen Sekunden berechnen — kostenlos, ohne Anmeldung, in 7 Sprachen.</p>
             <a href="/" style={{display:'inline-block',background:C.acc,color:'#fff',borderRadius:10,padding:'13px 28px',fontWeight:700,textDecoration:'none',fontSize:15,boxShadow:'0 4px 16px rgba(240,136,62,0.3)'}}>
