@@ -19,6 +19,15 @@ const C = {
   success:'#22c55e',error:'#ef4444',
 };
 
+const faqSchema = {
+  "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Ist LenkzeitRechner.de wirklich kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja. Die Nutzung ist vollständig kostenlos und ohne Registrierung möglich. Der Betrieb wird über als solche gekennzeichnete Google-AdSense-Anzeigen finanziert."}},
+    {"@type":"Question","name":"Ersetzt der Rechner den digitalen Tachographen?","acceptedAnswer":{"@type":"Answer","text":"Nein. Das Ergebnis ist eine unverbindliche Planungshilfe. Rechtsverbindlich sind allein der digitale Fahrtenschreiber und die Aufzeichnungen auf der Fahrerkarte."}},
+    {"@type":"Question","name":"In welchen Sprachen ist der Rechner verfügbar?","acceptedAnswer":{"@type":"Answer","text":"In sieben Sprachen: Deutsch, Englisch, Rumänisch, Polnisch, Tschechisch, Bulgarisch und Russisch."}},
+    {"@type":"Question","name":"Wie aktuell sind die Inhalte?","acceptedAnswer":{"@type":"Answer","text":"Die Inhalte werden mindestens halbjährlich überprüft und bei Gesetzesänderungen unverzüglich angepasst. Grundlage sind ausschließlich rechtsverbindliche Primärquellen."}}
+  ]
+};
+
 export default function UeberUns() {
   const card = {background:C.surface,border:`1px solid ${C.border}`,borderRadius:18,padding:'28px 32px',marginBottom:20};
   const h2s = {fontSize:20,fontWeight:700,color:C.acc,marginBottom:12,marginTop:0};
@@ -29,6 +38,7 @@ export default function UeberUns() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         *{box-sizing:border-box;margin:0;padding:0;}
@@ -199,8 +209,19 @@ export default function UeberUns() {
             </p>
           </section>
 
+          <section style={card}>
+            <h2 style={h2s}>Häufige Fragen zu LenkzeitRechner.de</h2>
+            <h3 style={h3s}>Ist die Nutzung wirklich kostenlos?</h3>
+            <p style={p}>Ja, vollständig kostenlos und ohne Anmeldung. Der Betrieb wird über klar gekennzeichnete Anzeigen finanziert.</p>
+            <h3 style={h3s}>Ersetzt der Rechner den digitalen Tachographen?</h3>
+            <p style={p}>Nein. Das Ergebnis ist eine unverbindliche Planungshilfe. Rechtsverbindlich sind allein der Fahrtenschreiber und die Fahrerkarte.</p>
+            <h3 style={h3s}>In welchen Sprachen gibt es den Rechner?</h3>
+            <p style={p}>In sieben Sprachen: Deutsch, Englisch, Rumänisch, Polnisch, Tschechisch, Bulgarisch und Russisch.</p>
+            <h3 style={h3s}>Wie aktuell sind die Inhalte?</h3>
+            <p style={p}>Mindestens halbjährliche Prüfung und sofortige Anpassung bei Gesetzesänderungen — auf Basis rechtsverbindlicher Primärquellen.</p>
+          </section>
+
           <div style={{...card,background:`linear-gradient(135deg,rgba(240,136,62,0.08),${C.surface})`,borderColor:'rgba(240,136,62,0.2)',textAlign:'center'}}>
-            <div style={{fontSize:32,marginBottom:12}}></div>
             <h2 style={{...h2s,textAlign:'center'}}>Direkt zum Rechner</h2>
             <p style={{...p,textAlign:'center'}}>Lenk- und Ruhezeiten in wenigen Sekunden berechnen — kostenlos, ohne Anmeldung, in 7 Sprachen.</p>
             <a href="/" style={{display:'inline-block',background:C.acc,color:'#fff',borderRadius:10,padding:'13px 28px',fontWeight:700,textDecoration:'none',fontSize:15,boxShadow:'0 4px 16px rgba(240,136,62,0.3)'}}>
