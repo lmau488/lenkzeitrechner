@@ -553,6 +553,9 @@ export default function Home(){
                 <a href="/lkw-lenkzeiten" style={{color:C.dim,textDecoration:'none'}}>Lenkzeiten</a>
                 <a href="/pausenrechner" style={{color:C.dim,textDecoration:'none'}}>Pausenrechner</a>
                 <a href="/ruhezeiten" style={{color:C.dim,textDecoration:'none'}}>Ruhezeiten</a>
+                <a href="/ausnahmen" style={{color:C.dim,textDecoration:'none'}}>Ausnahmen</a>
+                <a href="/doppelbesatzung" style={{color:C.dim,textDecoration:'none'}}>Doppelbesatzung</a>
+                <a href="/kontrolle" style={{color:C.dim,textDecoration:'none'}}>Kontrolle</a>
                 <a href="/bussgeldkatalog" style={{color:C.dim,textDecoration:'none'}}>Bußgelder</a>
                 <a href="/digitaler-tachograph" style={{color:C.dim,textDecoration:'none'}}>Tachograph</a>
                 <a href="/mobilitaetspaket" style={{color:C.dim,textDecoration:'none'}}>Mobilitätspaket</a>
@@ -585,6 +588,15 @@ export default function Home(){
                 </a>
                 <a href="/mobilitaetspaket" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
                   Mobilitätspaket I
+                </a>
+                <a href="/ausnahmen" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
+                  Ausnahmen & Handwerkerregelung
+                </a>
+                <a href="/doppelbesatzung" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
+                  Doppelbesatzung & Team-Fahrer
+                </a>
+                <a href="/kontrolle" style={{display:'block',padding:'10px 12px',borderRadius:8,marginBottom:6,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
+                  Kontrolle & Bußgeldverfahren
                 </a>
                 <a href="/ueber-uns" style={{display:'block',padding:'10px 12px',borderRadius:8,background:C.surface2,color:C.txt,textDecoration:'none',fontSize:13,fontWeight:600,transition:'background 0.15s'}}>
                   Über uns & Methodik
